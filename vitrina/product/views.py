@@ -20,8 +20,11 @@ def product_details(requests, product_id):
             return HttpResponse('Error form')
     else:
         product = Offer.objects.get(pk=product_id)
+        random_products = Offer.objects.exclude(pk=product_id).order_by('?')
+
         content = {
             'product': product,
+            'products': random_products[:4],
         }
         return render(requests, 'product/product_detail.html', content)
 
