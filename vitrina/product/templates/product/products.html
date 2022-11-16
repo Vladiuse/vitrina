@@ -1,0 +1,87 @@
+{%extends 'product/base.html'%}
+{%block content%}
+<div class="premium-title-container">
+    <h2 class="premium-title">Principales Categorías</h2>
+    <span></span>
+  </div>
+  <div class="categorys-container">
+    <div class="row">
+        <div class="col">
+            <img src="https://andianperu.com/wp-content/uploads/2021/04/Insumos-naturales-1024x1024.jpeg">
+        </div>
+        <div class="col">
+            <img src="https://andianperu.com/wp-content/uploads/2021/04/Servicio-de-maquila-1024x1024.jpeg">
+        </div>
+        <div class="col">
+            <img src="https://andianperu.com/wp-content/uploads/2021/04/Productos-naturales.jpeg">
+        </div>
+        <div class="col">
+            <img src="https://andianperu.com/wp-content/uploads/2021/04/Salud-natural-1024x1024.jpeg">
+        </div>
+    </div>
+  </div>
+  <div class="premium-title-container">
+    <h2 class="premium-title">
+        Productos naturales más vendidos</h2>
+    <span></span>
+  </div>
+<div class="container" id="products">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        {%for product in products%}
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img src="{{product.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus modi iusto saepe alias, quaerat facere dolorum ipsam aliquid consequatur distinctio reiciendis minima blanditiis, ipsum ipsa molestias corrupti, excepturi eum natus.</p>
+              <h5 class="card-title">{{product.name}}</h5>
+              <p class="card-text price">666$</p>
+
+              <a href="{% url 'product:product_detail' product.id %}" class="btn btn-primary">See More</a>
+            </div>
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+</div>
+<style>
+#products{
+    margin-top: 40px;
+}
+.card{
+    border: none;
+}
+.card img{
+    width: 100%;
+}
+.card .card-title{
+    color: #37475a;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.card .card-text{
+    color: #999;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1;
+    font-style: italic;
+    margin-bottom: 8px;
+    text-overflow: ellipsis;
+    white-space: normal;
+    transition: 0.3s;
+}
+.card .card-text:hover{
+    color: #28a4cd;
+}
+.card a{
+    background-color: #61CE70;
+    color: #fff;
+    border-radius: 0px;
+    border-width: 0;
+}
+.card .price{
+    color: #25b244;
+    font-size: 18px;
+}
+</style>
+{%endblock%}
