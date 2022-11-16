@@ -30,12 +30,18 @@
         {%for product in products%}
         <div class="col">
           <div class="card h-100 text-center">
-            <img src="{{product.image.url}}" class="card-img-top" alt="...">
+            <a href="{% url 'product:product_detail' product.id %}">
+                <img src="{{product.image.url}}" class="card-img-top" alt="...">
+            </a>
             <div class="card-body">
-                <p class="card-text">{{product.desc}}</p>
-              <h5 class="card-title">{{product.name}}</h5>
+                <a href="{% url 'product:product_detail' product.id %}">
+                    <p class="card-text">{{product.desc}}</p>
+                </a>
+                <a href="{% url 'product:product_detail' product.id %}">
+                    <h5 class="card-title">{{product.name}}</h5>
+                </a>
               <p class="card-text price">{{product.price}}</p>
-
+                
               <a href="{% url 'product:product_detail' product.id %}" class="btn btn-primary">See More</a>
             </div>
           </div>

@@ -1,4 +1,7 @@
 /* INNER CARD STYLES */
+a{
+    text-decoration: none;
+}
 .product-title{
 background-color: #37475a;
 padding: 35px 0;
@@ -53,13 +56,13 @@ color: #fff;
 .card .card-title {
     color: #37475a;
     font-family: inherit;
-    font-size: 14px;
+    font-size: 20px;
     line-height: 1.5;
 }
 
 .card .card-text {
     color: #999;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 300;
     line-height: 1;
     font-style: italic;
@@ -73,11 +76,14 @@ color: #fff;
     color: #28a4cd;
 }
 
-.card a {
+.card a.btn-primary {
     background-color: #61CE70;
     color: #fff;
     border-radius: 0px;
     border-width: 0;
+}
+.card a.btn-primary:hover{
+    background-color: #6190ce;
 }
 
 .card .price {
@@ -115,6 +121,15 @@ color: #fff;
     padding: 15px 0;
     display: flex;
     justify-content: center;
+}
+.footer-bottom #policy-link{
+margin-left: 10px;
+color: white;
+transition: 0.3s;
+}
+.footer-bottom #policy-link:hover{
+    color: #13aff0;
+    text-decoration: underline;
 }
 
 .footer-bottom p {

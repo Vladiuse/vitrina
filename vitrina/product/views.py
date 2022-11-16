@@ -46,3 +46,7 @@ def success(requests, lead_id):
         'lead': lead,
     }
     return render(requests, 'product/success.html', content)
+
+
+def policy(requests):
+    return render(requests, 'product/policy.html')
