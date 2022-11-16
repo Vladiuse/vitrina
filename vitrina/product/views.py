@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, reverse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Offer, Lead
 from .forms import LeadForm
 
@@ -14,7 +14,9 @@ def product_details(requests, product_id):
     if requests.method == 'POST':
         lead_form = LeadForm(requests.POST)
         if lead_form.is_valid:
-            lead_form.save()
+            lead = lead_form.save()
+            print('XXXXXX', lead.pk)
+            return HttpResponseRedirect(reverse('product:success', kwargs={'lead_id': lead.id}))
             return HttpResponse('Success')
         else:
             return HttpResponse('Error form')
@@ -27,8 +29,15 @@ def product_details(requests, product_id):
 
 
 def leads(requests):
-    leads = Lead.objects.all()
+    leads = Lead.objects.all().order_by('-pk')
     content = {
         'leads': leads,
     }
     return render(requests, 'product/leads.html', content)
+
+def success(requests, lead_id):
+    lead = Lead.objects.get(pk=lead_id)
+    content = {
+        'lead': lead,
+    }
+    return render(requests, 'product/success.html', content)

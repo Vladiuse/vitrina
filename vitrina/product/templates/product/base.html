@@ -43,7 +43,8 @@
       </nav>
     {%block content%}
     {%endblock%}
-    <div class="prefooter">
+<footer class="">
+    <div class="prefooter ">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -95,19 +96,22 @@
             </div>
         </div>
     </div>
-    <footer>
+    <div class="footer-bottom">
         <p>Copyright 2022 - Vitrina.com</p>
-    </footer>
-
+    </div>
+</footer>
+<div id="page-up" style="display: none;">
+    <i class="fa-solid fa-caret-up"></i>
+  </div>
 <style>
     /* FOOTER */
-    footer{
+    .footer-bottom{
         background-color: #1B1B1B;
         padding: 15px 0;
         display: flex;
         justify-content: center;
     }
-    footer p{
+    .footer-bottom p{
         color: white;
         margin: 0;
     }
@@ -197,5 +201,40 @@
         box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 50%)
     }
 </style>
+<style>
+    #page-up{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      /* background-color: red; */
+      background-color: #fff;
+      box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+      font-size: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    #page-up.hide{
+        display: none;
+    }
+  </style>
+  <script>
+    // page up button
+    $(window).scroll(function (event) {
+      if ($(window).height()*0.7 < window.scrollY) {
+          $('#page-up').show()
+      } else {
+        $('#page-up').hide()
+      }
+  });
+  $('#page-up').click(function(){
+    window.scrollTo(0, 0);
+  })
+  </script>
 </body>
 </html>
