@@ -1,6 +1,7 @@
 {%extends 'product/base.html'%}
 {%block content%}
-
+<p>request.META.REMOTE_ADDR - {{request.META.REMOTE_ADDR}}</p>
+<p>request.META.HTTP_X_FORWARDED_FOR - {{request.META.HTTP_X_FORWARDED_FOR}}</p>
 <div class="product-title">
     <div class="container">
         <h2>{{product.name}}</h2>
