@@ -1,0 +1,29 @@
+{%extends 'product/base.html'%}
+{%block content%}
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Offer</th>
+            <th scope="col">Date</th>
+            <th scope="col">Ip</th>
+          </tr>
+        </thead>
+        <tbody>
+            {%for lead in leads%}
+          <tr>
+            <td>{{lead.pk}}</td>
+            <td>{{lead.name}}</td>
+            <td>{{lead.phone}}</td>
+            <td>{{lead.offer}}</td>
+            <td>{{lead.datetime|date:"d.m.Y H:i:s"}}</td>
+            <td>{{lead.ip}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+</div>
+{%endblock%}

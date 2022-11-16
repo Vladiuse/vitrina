@@ -15,9 +15,7 @@ def product_details(requests, product_id):
         lead_form = LeadForm(requests.POST)
         if lead_form.is_valid:
             lead = lead_form.save()
-            print('XXXXXX', lead.pk)
             return HttpResponseRedirect(reverse('product:success', kwargs={'lead_id': lead.id}))
-            return HttpResponse('Success')
         else:
             return HttpResponse('Error form')
     else:
