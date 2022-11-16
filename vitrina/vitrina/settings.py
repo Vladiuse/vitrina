@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-8%#3s*mm3(rk)wc_v)jo9c383jqn+$z)tpoh8gf#cfwkk3b@#j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['vitrina.vim-store.ru', '127.0.0.1']
 
 
 # Application definition
