@@ -1,5 +1,79 @@
 {%extends 'product/base.html'%}
 {%block content%}
-<h1>{{product.name}}</h1>
-<img src="{{product.image.url}}">
+<div class="product-title">
+    <div class="container">
+        <h2>{{product.name}}</h2>
+    </div>
+</div>
+<div class="container-sm form-wrapper">
+    <div class="row">
+        <div class="col-5">
+            <img src="{{product.image.url}}">
+        </div>
+        <div class="col-7">
+            <h3 class="product-name">{{product.name}}</h3>
+            <h4 class="price">{{product.price}}</h4>
+            <p class="product-desc">{{product.desc}}</p>
+            <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">You name</label>
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+    </div>
+</div>
+<div class="container product-info">
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia voluptate minus minima consequatur ab ducimus deserunt reprehenderit facere nostrum dolores impedit temporibus quia, ut dolor quas, omnis aut assumenda.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia voluptate minus minima consequatur ab ducimus deserunt reprehenderit facere nostrum dolores impedit temporibus quia, ut dolor quas, omnis aut assumenda.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia voluptate minus minima consequatur ab ducimus deserunt reprehenderit facere nostrum dolores impedit temporibus quia, ut dolor quas, omnis aut assumenda.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia voluptate minus minima consequatur ab ducimus deserunt reprehenderit facere nostrum dolores impedit temporibus quia, ut dolor quas, omnis aut assumenda.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia voluptate minus minima consequatur ab ducimus deserunt reprehenderit facere nostrum dolores impedit temporibus quia, ut dolor quas, omnis aut assumenda.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia voluptate minus minima consequatur ab ducimus deserunt reprehenderit facere nostrum dolores impedit temporibus quia, ut dolor quas, omnis aut assumenda.</p>
+</div>
+
+<style>
+    .product-title{
+        background-color: #37475a;
+        padding: 35px 0;
+        color: #fff;
+    }
+    .form-wrapper{
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    .form-wrapper img{
+        width: 100%;
+    }
+    .form-wrapper h3.product-name{
+        font-size: 35px;
+        color:red;
+        border-bottom: 1px solid #333;
+    }
+    .form-wrapper .price{
+        color: #25b244;
+        font-size: 36px;
+        line-height: 30px;
+        font-weight: 400;
+    }
+    .form-wrapper .product-desc{
+        color:red;
+        font-size: 26px;
+        line-height: 20px;
+        font-weight: 300;
+    }
+    .form-wrapper form{
+        max-width: 400px;
+    }
+</style>
 {%endblock%}

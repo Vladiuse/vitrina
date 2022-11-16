@@ -32,9 +32,9 @@
           <div class="card h-100 text-center">
             <img src="{{product.image.url}}" class="card-img-top" alt="...">
             <div class="card-body">
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus modi iusto saepe alias, quaerat facere dolorum ipsam aliquid consequatur distinctio reiciendis minima blanditiis, ipsum ipsa molestias corrupti, excepturi eum natus.</p>
+                <p class="card-text">{{product.desc}}</p>
               <h5 class="card-title">{{product.name}}</h5>
-              <p class="card-text price">666$</p>
+              <p class="card-text price">{{product.price}}</p>
 
               <a href="{% url 'product:product_detail' product.id %}" class="btn btn-primary">See More</a>
             </div>
@@ -44,6 +44,9 @@
       </div>
 </div>
 <style>
+        /* CARDS */
+
+
 #products{
     margin-top: 40px;
 }
@@ -83,5 +86,21 @@
     color: #25b244;
     font-size: 18px;
 }
+    /* CARDS */
+
+    .premium-title-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .premium-title-container h2{
+        color:#37475A;
+        font-size: 30px;
+    }
+    .premium-title-container span{
+        width: 120px;
+        height: 5px;
+        background-color: #37475A;
+    }
 </style>
 {%endblock%}
