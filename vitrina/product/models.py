@@ -14,3 +14,13 @@ class Offer(models.Model):
     def __str__(self):
         return str(self.name)
 
+
+class Lead(models.Model):
+    offer = models.ForeignKey(Offer, on_delete=models.SET_NULL, null=True)
+    name = models.CharField(max_length=50,verbose_name='Имя клиента')
+    phone = models.CharField(max_length=15, verbose_name='Номер клиента')
+    ip = models.GenericIPAddressField(blank=True, verbose_name='Ip аддресс пользователя', null=True)
+    datetime = models.DateTimeField(auto_now_add=True)
+
+
+
