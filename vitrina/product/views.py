@@ -5,7 +5,7 @@ from .forms import LeadForm
 
 
 def index(requests):
-    products = Offer.objects.all()
+    products = Offer.published.all()
     content = {
         'products': products,
     }
@@ -18,6 +18,7 @@ def product_details(requests, product_id):
         lead_form = LeadForm(requests.POST)
         if lead_form.is_valid:
             lead = lead_form.save()
+            lead.send()
             return HttpResponseRedirect(reverse('product:success', kwargs={'lead_id': lead.id}))
         else:
             return HttpResponse('Error form')

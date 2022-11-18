@@ -10,6 +10,10 @@
             <th scope="col">Offer</th>
             <th scope="col">Date</th>
             <th scope="col">Ip</th>
+            <th scope="col">Code</th>  
+            <th scope="col">sending_data</th>
+            <th scope="col">response</th>
+            <th scope="col">error</th>
           </tr>
         </thead>
         <tbody>
@@ -21,6 +25,10 @@
             <td>{{lead.offer}}</td>
             <td>{{lead.datetime|date:"d.m.Y H:i:s"}}</td>
             <td>{{lead.ip}}</td>
+            <td>{{lead.status_code}}</td>
+            <td>{{lead.sending_data}}</td>
+            <td>{{lead.response}}</td>
+            <td>{{lead.error}}</td>
           </tr>
           {%endfor%}
         </tbody>
