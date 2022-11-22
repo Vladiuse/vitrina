@@ -19,7 +19,8 @@ class Category(models.Model):
         return str(self.name)
 
     def get_mini_land(self):
-        path = os.path.join(f'media/{self.MINI_LANDS_DIR_NAME}/{self.mini_land}.html')
+
+        path = os.path.join(settings.MEDIA_ROOT,f'{self.MINI_LANDS_DIR_NAME}/{self.mini_land}.html')
         try:
             with open(path, encoding='utf-8') as file:
                 text = file.read()
@@ -74,7 +75,7 @@ class Offer(models.Model):
         print('123')
 
     def get_mini_land(self):
-        path = os.path.join(f'media/{self.MINI_LANDS_DIR_NAME}/{self.mini_land}.html')
+        path = os.path.join(settings.MEDIA_ROOT,f'{self.MINI_LANDS_DIR_NAME}/{self.mini_land}.html')
         try:
             with open(path, encoding='utf-8') as file:
                 text = file.read()
