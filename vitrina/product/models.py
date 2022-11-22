@@ -32,7 +32,7 @@ class Category(models.Model):
             result = template.render(context)
             return str(result)
         except FileNotFoundError as error:
-            return ''
+            return 'no find'
 
 
 class PublicOffers(models.Manager):
@@ -87,7 +87,7 @@ class Offer(models.Model):
             result = template.render(context)
             return str(result)
         except FileNotFoundError as error:
-            return ''
+            return 'no find'
 
     @staticmethod
     def get_next(current_offer_id):
