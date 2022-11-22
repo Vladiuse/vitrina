@@ -1,6 +1,6 @@
 from django.shortcuts import render, reverse
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Offer, Lead
+from .models import Offer, Lead, Category
 from .forms import LeadForm
 
 
@@ -10,6 +10,17 @@ def index(requests):
         'products': products,
     }
     return render(requests, 'product/products.html', content)
+
+def category(requests, slug):
+    print(slug)
+    category = Category.objects.get(slug=slug)
+    products = Offer.objects.filter(category=category)
+    content = {
+        'products': products,
+        'category': category,
+    }
+    return render(requests, 'product/category_products.html', content)
+
 
 
 def product_details(requests, product_id):
@@ -51,3 +62,11 @@ def success(requests, lead_id):
 
 def policy(requests):
     return render(requests, 'product/policy.html')
+
+def prev_next_product(requests,direction, curr_id):
+    curr_id = int(curr_id)
+    if direction == 'prev':
+        product_id = Offer.get_prev(curr_id)
+    else:
+        product_id = Offer.get_next(curr_id)
+    return HttpResponseRedirect(reverse('product:product_detail', kwargs={'product_id': product_id}))

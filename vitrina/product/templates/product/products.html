@@ -1,32 +1,40 @@
 {%extends 'product/base.html'%}
+{%load static%}
 {%block content%}
 <div class="premium-title-container">
     <h2 class="premium-title">Principales Categorías</h2>
     <span></span>
   </div>
-  <div class="categorys-container">
-    <div class="row row-cols-2 row-cols-md-4">
-        <div class="col">
-            <img src="https://andianperu.com/wp-content/uploads/2021/04/Insumos-naturales-1024x1024.jpeg">
-        </div>
-        <div class="col">
-            <img src="https://andianperu.com/wp-content/uploads/2021/04/Servicio-de-maquila-1024x1024.jpeg">
-        </div>
-        <div class="col">
-            <img src="https://andianperu.com/wp-content/uploads/2021/04/Productos-naturales.jpeg">
-        </div>
-        <div class="col">
-            <img src="https://andianperu.com/wp-content/uploads/2021/04/Salud-natural-1024x1024.jpeg">
-        </div>
+  {%block header%}
+  <div class="container">
+    <div class="categorys-container">
+      <div class="row row-cols-1 row-cols-md-3">
+          <div class="col">
+              <a href="{%url 'product:category' 'diabetes' %}">
+                <img src="{%static 'product/images/diabet.jpg'%}">
+              </a>
+          </div>
+          <div class="col">
+            <a href="{%url 'product:category' 'hypertension'%}">
+              <img src="{%static 'product/images/hipa.jpg'%}">
+            </a>
+          </div>
+          <div class="col">
+            <a href="{%url 'product:category' 'joints'%}">
+              <img src="{%static 'product/images/sust.jpg'%}">
+            </a>
+          </div>
+      </div>
     </div>
   </div>
+  {%endblock%}
   <div class="premium-title-container">
     <h2 class="premium-title">
         Productos naturales más vendidos</h2>
     <span></span>
   </div>
 <div class="container" id="products">
-    <div class="row row-cols-2row-cols-md-4 g-4">
+    <div class="row row-cols-2 row-cols-md-4 g-4">
         {%for product in products%}
         <div class="col">
           <div class="card h-100 text-center">
@@ -50,5 +58,48 @@
         {%endfor%}
       </div>
 </div>
+{%endblock%}
+{%block bottom-mini-land%}
+<div class="container">
+  <div class="mini-land">
+    <!-- <h1>Mini-land main</h1> -->
+    <div class="container">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+          <img src="data:image/png;base64,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">
+        </div>
+        <div class="col">
+          <img src="https://investprofit.info/wp-content/uploads/2020/07/graf_kotir.png">
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+    <br><br>
+    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, maxime veritatis sequi nesciunt, consequuntur incidunt nobis sit, non facilis explicabo asperiores doloremque cupiditate. Praesentium sunt repellendus laborum, impedit quaerat quo?</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, maxime veritatis sequi nesciunt, consequuntur incidunt nobis sit, non facilis explicabo asperiores doloremque cupiditate. Praesentium sunt repellendus laborum, impedit quaerat quo?</p>
 
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <img src="https://martacare.by/wp-content/uploads/2016/09/doctor-2.jpg">
+          <h5>Some Text of doctor</h5>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, dicta eligendi! Reiciendis asperiores expedita eos dicta? Nostrum voluptates obcaecati harum praesentium, illum ab libero voluptate assumenda quo aliquid unde nulla.</p>
+        </div>
+        <div class="col">
+          <img src="https://martacare.by/wp-content/uploads/2016/09/doctor-2.jpg">
+          <h5>Some Text of doctor</h5>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, dicta eligendi! Reiciendis asperiores expedita eos dicta? Nostrum voluptates obcaecati harum praesentium, illum ab libero voluptate assumenda quo aliquid unde nulla.</p>
+        </div>
+        <div class="col">
+          <img src="https://martacare.by/wp-content/uploads/2016/09/doctor-2.jpg">
+          <h5>Some Text of doctor</h5>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis, dicta eligendi! Reiciendis asperiores expedita eos dicta? Nostrum voluptates obcaecati harum praesentium, illum ab libero voluptate assumenda quo aliquid unde nulla.</p>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</div>
 {%endblock%}

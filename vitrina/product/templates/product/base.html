@@ -18,33 +18,76 @@
     <!--ICONS-->
     <script src="https://kit.fontawesome.com/da43c2ea11.js" crossorigin="anonymous"></script>
     <!-- MY STYLES -->
-    <link rel="stylesheet" href="{%static 'product/styles.css'%}">
+    <link rel="stylesheet" href="{%static 'product/styles.css'%}?v=0">
 </head>
+<style>
+  #top{
+    background-color: #37475a;
+    padding: 12px 0;
+  }
+  #top i{
+    color: #fff;
+  }
+  .header{
+    background-color: #ebebeb!important;
+    /* padding: 15px; */
+  
+  }
+  .header .col{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .header .col a{
+    font-size: 17px;
+    line-height: 74px;
+    color: #555;
+  }
+  .header img.logo{
+    width: 100px;
+  }
+  .header-2{
+    background-color: #25B244;
+    color: white;
+    padding: 12px;
+    text-align: center;
+  }
+  .header-2 h5{
+    margin: 0;
+    padding: 0;
+  }
+</style>
 <body>
+  <header>
+    <div id="top">
+      <div class="container">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i> 
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+    </div>
+  </header>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'product:products' %}">
-                <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24">
-              </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="{% url 'product:products' %}">Vitrina</a>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'product:leads' %}">Log.txt</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-
-          </div>
-        </div>
-      </nav>
+<div class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col"><img src="{%static 'product/images/logo.jpg'%}" class="logo"></div>
+      <div class="col"></div>
+      <div class="col"><a class="cat-link" href="{%url 'product:category' 'diabetes'%}">diabetes</a></div>
+      <div class="col"><a class="cat-link" href="{%url 'product:category' 'joints'%}">joints</a></div>
+      <div class="col"><a class="cat-link" href="{%url 'product:category' 'hypertension'%}">hypertension</a></div>
+    </div>
+  </div>
+</div>
+{%block header-2%}
+<div class="header-2">
+  <h5>Abasteciendo a la industria peruana con insumos y productos de calidad
+  </h5>
+{%endblock%}
+</div>
     {%block content%}
+    {%endblock%}
+    {%block bottom-mini-land%}
     {%endblock%}
 <footer class="">
   {%block mainfooter%}
@@ -55,9 +98,9 @@
                     <h4 class="widget-title">Principales Categorías</h4>
                     <div class="custom-menu">
                         <ul>
-                            <li>Insumos Naturales</li>
-                            <li>Servicio de Maquila</li>
-                            <li>Productos naturales</li>
+                            <li>diabetes</li>
+                            <li>joints</li>
+                            <li>hypertension</li>
                         </ul>
                     </div>
                 </div>
@@ -109,7 +152,22 @@
 <div id="page-up" style="display: none;">
     <i class="fa-solid fa-caret-up"></i>
   </div>
-
+  <style>
+    .mini-land{
+      margin-top: 30px;
+      margin-bottom: 30px;
+        background-color: rgb(206, 206, 206);
+        border: 8px dashed rgb(116, 116, 116) ;
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+        width: 100%;
+        height: 1000px;
+    }
+    .mini-land img{
+        max-width: 300px;
+    }
+</style>
 <style>
     /* PAGE UP STYLES */
     #page-up{

@@ -1,11 +1,23 @@
 {%extends 'product/base.html'%}
+{%block header-2%}
+{%endblock%}
 {%block content%}
 
 <!-- <p>request.META.HTTP_X_REAL_IP - {{request.META.HTTP_X_REAL_IP}}</p> -->
 
 <div class="product-title">
     <div class="container">
-        <h2>{{product.name}}</h2>
+        <div class="row">
+          <div class="col-3">
+            <h2>{{product.name}}</h2>
+          </div>
+          <div class="col-6"></div>
+          <div class="col-3">
+            <i class="fa-solid fa-house-user"></i>
+            Текст какая это старничка<a href="">+ссылка</a>
+          </div>
+        </div>
+        
     </div>
 </div>
 <div class="container-sm form-wrapper">
@@ -14,10 +26,11 @@
             <img src="{{product.image.url}}">
         </div>
         <div class="col-7">
-            <h3 class="product-name">{{product.name}}</h3>
+            <h3 class="product-name">{{product.name}}</h3> <a href="{%url 'product:prev_next_product' 'prev' product.id %}">PREV</a> | <a href="{%url 'product:prev_next_product' 'next' product.id %}">NEXT</a> <br>
+            <h4 class="old-price">999$</h4>
             <h4 class="price">{{product.price}}</h4>
             <p class="product-desc">{{product.desc}}</p>
-            <form method="POST">
+            <!-- <form method="POST">
                 {%csrf_token%}
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">You name</label>
@@ -30,27 +43,46 @@
                 </div>
                 <input type="hidden" name="offer" value="{{product.id}}">
                 <input type="hidden" name="ip" value="{{request.META.HTTP_X_REAL_IP}}">
-                <!-- <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div> -->
                 <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
+              </form> -->
         </div>
     </div>
 </div>
-<div class="premium-title-container">
+<div class="premium-title-container mini-land container">
     <h2 class="premium-title">
        Abount Productos</h2>
     <span></span>
 </div>
+
 <div class="container product-info">
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia voluptate minus minima consequatur ab ducimus deserunt reprehenderit facere nostrum dolores impedit temporibus quia, ut dolor quas, omnis aut assumenda.</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia voluptate minus minima consequatur ab ducimus deserunt reprehenderit facere nostrum dolores impedit temporibus quia, ut dolor quas, omnis aut assumenda.</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia voluptate minus minima consequatur ab ducimus deserunt reprehenderit facere nostrum dolores impedit temporibus quia, ut dolor quas, omnis aut assumenda.</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia voluptate minus minima consequatur ab ducimus deserunt reprehenderit facere nostrum dolores impedit temporibus quia, ut dolor quas, omnis aut assumenda.</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia voluptate minus minima consequatur ab ducimus deserunt reprehenderit facere nostrum dolores impedit temporibus quia, ut dolor quas, omnis aut assumenda.</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia voluptate minus minima consequatur ab ducimus deserunt reprehenderit facere nostrum dolores impedit temporibus quia, ut dolor quas, omnis aut assumenda.</p>
+  <div>{{product.get_mini_land|safe}}</div>
+</div>
+<div class="container form-wrapper">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <img src="{{product.image.url}}">
+      <h3 class="product-name">{{product.name}}</h3>
+            <h4 class="old-price">999$</h4>
+            <h4 class="price">{{product.price}}</h4>
+      <form method="POST">
+        {%csrf_token%}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">You name</label>
+          <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input name="phone" type="tel" class="form-control" id="exampleInputPassword1">
+        </div>
+        <input type="hidden" name="offer" value="{{product.id}}">
+        <input type="hidden" name="ip" value="{{request.META.HTTP_X_REAL_IP}}">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="col-3"></div>
+  </div>
 </div>
 <div class="premium-title-container">
     <h2 class="premium-title">

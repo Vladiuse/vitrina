@@ -1,8 +1,12 @@
 from django.contrib import admin
-from .models import Offer, Lead, AdcomboOffer, LeadRockOffer, KmaOffer
+from .models import Offer, Lead, AdcomboOffer, LeadRockOffer, KmaOffer, Category
 
 
 # Register your models here.
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ['slug', 'name']
+    list_display_links = list_display
 
 class LeadAdmin(admin.ModelAdmin):
     list_display = ['id','datetime', 'name', 'phone', 'offer', 'ip']
@@ -23,6 +27,7 @@ class KmaOfferAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Offer)
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(AdcomboOffer, AdcomboOfferAdmin)
 admin.site.register(LeadRockOffer, LeadRockOfferAdmin)
 admin.site.register(Lead,LeadAdmin)
