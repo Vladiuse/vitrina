@@ -123,7 +123,7 @@ class AdcomboOffer(Offer):
         verbose_name_plural = 'Офферы Adcombo'
 
     API_URL = 'https://api.adcombo.com/api/v2/order/create/'
-    API_KEY = '_02ae7ffc3405c078074682b7b2abae9f'
+    API_KEY = '02ae7ffc3405c078074682b7b2abae9f'
 
     offer_id = models.CharField(max_length=10, verbose_name='Айди оффера в Adcombo / offer_id')
     base_url = models.URLField(verbose_name='ссылка лэнда оффера / base_url')
