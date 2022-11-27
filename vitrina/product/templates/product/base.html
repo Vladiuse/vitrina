@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="{%static 'product/css/style.css'%}">
       <!--ICONS-->
       <script src="https://kit.fontawesome.com/da43c2ea11.js" crossorigin="anonymous"></script>
+    <!-- JQUERY -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -125,6 +127,46 @@
         <p>Copyright 2022</p>
       </div>
     </footer>
+  <div id="page-up" style="display: none;">
+    <i class="fa-solid fa-caret-up"></i>
+  </div>
+  <style>
+    /* PAGE UP STYLES */
+    #page-up{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      /* background-color: red; */
+      background-color: #fff;
+      box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+      font-size: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    #page-up.hide{
+        display: none;
+    }
+    /* PAGE UP STYLES */
+  </style>
+    <script>
+    // page up button
+    $(window).scroll(function (event) {
+      if ($(window).height()*0.7 < window.scrollY) {
+          $('#page-up').show()
+      } else {
+        $('#page-up').hide()
+      }
+  });
+  $('#page-up').click(function(){
+    window.scrollTo(0, 0);
+  })
+  </script>
   
     
   
