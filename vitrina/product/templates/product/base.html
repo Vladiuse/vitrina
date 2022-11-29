@@ -12,6 +12,96 @@
       <script src="https://kit.fontawesome.com/da43c2ea11.js" crossorigin="anonymous"></script>
     <!-- JQUERY -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <style>
+    .mini-land-wrapp{
+      display: flex;
+      justify-content: center;
+    }
+    .mini-land{
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+    }
+    .mini-land p{
+      margin: 7px 0;
+      padding: 0;
+    }
+    .mini-land h4{
+      margin: 10px 0;
+    }
+  </style>
+  <style>
+    /* MINI_LAND STYLES */
+      .mini-land{
+        color: #4a4a4a;
+        padding: 0 20px;
+      }
+      .mini-land .center{
+        text-align: center;
+      }
+        .red{
+          color: #c72615 !important;
+        }
+        .mini-land h2,
+        .mini-land h4{
+          color:#333;
+        }
+        .mini-land h3{
+          color:#4a4a4a
+        }
+        .mini-land p{
+          margin: 0 0 20px;
+          line-height: 25px;
+        }
+      .imagw-wrap{
+        display: flex;
+        justify-content: center;
+      }
+      .mini-land {
+        max-width: 800px;
+      }
+      .imagw-wrap{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .imagw-wrap img{
+        width: 100%;
+        max-width: 600px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+      }
+      .imagw-wrap p{
+        width: 80%;
+        font-style: italic;
+        text-align: center;
+      }
+      .mini-land ul li{
+        list-style-type: circle;
+        list-style-position: inside;
+      }
+    
+      /* COMENTARIES */
+      .mini-land .comment{
+        display: flex;
+        margin-bottom: 10px;
+      }
+      .mini-land .comment img{
+        width: 70px;
+        height: 70px;
+        margin-right: 15px;
+      }
+      .mini-land .comment-wrapper{
+        margin-top: 50px;
+      }
+      .mini-land .comment .user-name{
+        color: #105f94;
+        margin-bottom: 2px;
+        font-size: 17px;
+      }
+      /* MINI_LAND STYLES */
+    </style>
 </head>
 
 <body>
@@ -22,15 +112,16 @@
         <div class="social__inner">
           <a class="social__link" href="#">
             <i class="fa-brands fa-facebook"></i>
-            <!-- <img src="{%static 'product/images/icons8-instagram-50.png'%}" alt=""> -->
+            <!-- <img src="images/icons8-instagram-50.png" alt=""> -->
           </a>
           <a class="social__link" href="#">
             <i class="fa-brands fa-youtube"></i>
-            <!-- <img src="{%static 'product/images/icons8-youtube-play-50.png'%}" alt=""> -->
+            <!-- <img src="images/icons8-youtube-play-50.png" alt=""> -->
           </a>
           <a class="social__link" href="#">
             <i class="fa-brands fa-instagram"></i>
-            <!-- <img src="{%static 'product/images/icons8-facebook-50.png'%}" alt=""> -->
+            
+            <!-- <img src="images/icons8-facebook-50.png" alt=""> -->
           </a>
         </div>
       </div>
@@ -44,14 +135,14 @@
         </div>
         <nav class="menu">
           <button class="menu__btn"></button>
-          <span class="menu__open">Menu</span>
-          <span class="menu__close">Cerrar</span>
+          <!-- <span class="menu__open">Menu</span>
+          <span class="menu__close">Cerrar</span> -->
         </nav>
         <ul class="menu-list">
           <li class="menu-list__item"><a class="menu-list__link" href="{%url 'product:products'%}">Home</a></li>
-          <li class="menu-list__item"><a class="menu-list__link" href="{%url 'product:category' 'diabetes'%}">Диабет</a></li>
-          <li class="menu-list__item"><a class="menu-list__link" href="{%url 'product:category' 'joints'%}">Суставы</a></li>
-          <li class="menu-list__item"><a class="menu-list__link" href="{%url 'product:category' 'hypertension'%}">Гипертония</a></li>
+          <li class="menu-list__item"><a class="menu-list__link" href="{%url 'product:category' 'diabetes'%}">first-product</a></li>
+          <li class="menu-list__item"><a class="menu-list__link" href="{%url 'product:category' 'joints'%}">second-product</a></li>
+          <li class="menu-list__item"><a class="menu-list__link" href="{%url 'product:category' 'hypertension'%}">third-product</a></li>
       </ul>
       </div>
     </div>
@@ -67,107 +158,95 @@
 {%endblock%}
 {%block header-mini-land%}
 {%endblock%}
-
 {%block content%}
 {%endblock%}
-
 {%block bottom-mini-land%}
 {%endblock%}
-    <footer class="footer">
-      <div class="container">
-        <div class="footer__inner">
-          <div class="footer__column categories">
-            <h3 class="categories__title">Principales Categorías</h3>
-            <ul class="categories__list">
-              <li class="categories__item">
-                <a class="categories__link" href="#">First-product</a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__link" href="#">Second-product</a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__link" href="#">Third-product</a>
-              </li>
-            </ul>
-          </div>
-          <div class="footer__column navigation">
-            <h3 class="navigation__title">Navegación</h3>
-            <ul class="navigation__list">
-              <li class="navigation__item">
-                <a class="navigation__link" href="">Carrito</a>
-              </li>
-              <li class="navigation__item">
-                <a class="navigation__link" href="">Description</a>
-              </li>
-              <li class="navigation__item">
-                <a class="navigation__link" href="">Nosotros</a>
-              </li>
-            </ul>
-          </div>
-          <div class="footer__column contakts">
-            <h3 class="contakts__title">Información De Contact</h3>
-            <ul class="contakts__list">
-              <li class="contakts__item">
-                <h4>Nueva dirección</h4>
-                <a class="contakts__link" href="">JR. Volcan Misti MZA. D12 Lote. 5E URB. Las Delicias De Villa, Chorrillos</a>
-              </li>
-              <li class="contakts__item">
-                <h4>Móvil:</h4>
-                <a class="contakts__link" href="">974294096</a>
-              </li>
-              <li class="contakts__item">
-                <h4>Correo electrónico:</h4>
-                <a class="contakts__link" href="">ventas@andianperu.com</a>
-              </li>
-            </ul>
-          </div>
+  <footer class="footer">
+    <div class="container-sm">
+      <div class="footer__inner">
+        <div class="footer__column categories">
+          <h3 class="categories__title">Principales Categorías</h3>
+          <ul class="categories__list">
+            <li class="categories__item">
+              <a class="categories__link" href="#">First-product</a>
+            </li>
+            <li class="categories__item">
+              <a class="categories__link" href="#">Second-product</a>
+            </li>
+            <li class="categories__item">
+              <a class="categories__link" href="#">Third-product</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__column navigation">
+          <h3 class="navigation__title">Navegación</h3>
+          <ul class="navigation__list">
+            <li class="navigation__item">
+              <a class="navigation__link" href="#">Carrito</a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link" href="#">Description</a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link" href="#">Nosotros</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__column contakts">
+          <h3 class="contakts__title">Información De Contact</h3>
+          <ul class="contakts__list">
+            <li class="contakts__item">
+              <h4>Nueva dirección</h4>
+              <a class="contakts__link" href="#">JR. Volcan Misti MZA. D12 Lote. 5E URB. Las Delicias De Villa, Chorrillos</a>
+            </li>
+            <li class="contakts__item">
+              <h4>Móvil:</h4>
+              <a class="contakts__link" href="#">+97-429-40-96</a>
+            </li>
+            <li class="contakts__item">
+              <h4>Correo electrónico:</h4>
+              <a class="contakts__link" href="#">ventas@andianperu.com</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__column footer__social">
+          <h3 class="social__title">Social</h3>
+          <ul class="social__list">
+            <li class="social__item">
+              <a class="social__link" href="#">
+                <i class="fa-brands fa-facebook"></i>
+                <!-- <img src="images/icons8-instagram-50.png" alt=""> -->
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link" href="#">
+                <i class="fa-brands fa-youtube"></i>
+                <!-- <img src="images/icons8-youtube-play-50.png" alt=""> -->
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link" href="#">
+                <i class="fa-brands fa-instagram"></i>
+                <!-- <img src="images/icons8-facebook-50.png" alt=""> -->
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="copyright">
-        <p>Copyright 2022</p>
-      </div>
-    </footer>
-  <div id="page-up" style="display: none;">
+    </div>
+    <div class="copyright">
+      <p>Copyright 2022</p>
+    </div>
+  </footer>
+
+  
+  <div id="toTop">
     <i class="fa-solid fa-caret-up"></i>
+    <!-- <div class="triangle"></div> -->
   </div>
-  <style>
-    /* PAGE UP STYLES */
-    #page-up{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      /* background-color: red; */
-      background-color: #fff;
-      box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
-      font-size: 30px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    #page-up.hide{
-        display: none;
-    }
-    /* PAGE UP STYLES */
-  </style>
-    <script>
-    // page up button
-    $(window).scroll(function (event) {
-      if ($(window).height()*0.7 < window.scrollY) {
-          $('#page-up').show()
-      } else {
-        $('#page-up').hide()
-      }
-  });
-  $('#page-up').click(function(){
-    window.scrollTo(0, 0);
-  })
-  </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="{%static 'product/js/main.js'%}"></script>
-  </body>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="{%static 'product/js/main.js'%}"></script>
   </html>

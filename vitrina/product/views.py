@@ -40,7 +40,8 @@ def product_details(requests, product_id):
             'product': product,
             'products': random_products[:RANDOM_PRODUCT_COUNT],
         }
-        return render(requests, f'product/mini_lands/{product.mini_land}.html', content)
+        # return render(requests, f'product/mini_lands/{product.mini_land}.html', content)
+        return render(requests, f'product/mini_lands/addcombo.html', content)
 
 
 def leads(requests):

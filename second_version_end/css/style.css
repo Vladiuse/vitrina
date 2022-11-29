@@ -46,9 +46,6 @@ body {
 .container {
   padding: 0 20px;
 }
-.container-sm {
-  padding: 0 20px;
-}
 
 /* ----Подзаголовки категорий с линией-------- */
 .subtitle {
@@ -58,7 +55,7 @@ body {
 
 .line {
   height: 5px;
-  width: 120px;
+  width: 180px;
   background-color: #37475A;
   border-radius: 5px;
   margin: 0 auto 20px;
@@ -76,7 +73,7 @@ body {
 .catalog__card-img {
   position: relative;
   height: 220px;
-  background-image: url(/static/product/images/background-card.jpg);
+  background-image: url(../content/background-card.jpg);
 }
 .catalog__card-img .link-img__card {
   position: absolute;
@@ -96,7 +93,7 @@ body {
 .catalog__card-img .oferta {
   display: block;
   padding: 5px 10px;
-  background-color: rgba(80, 244, 151, 0.9);
+  background-color: rgba(80, 244, 151, 0.577);
   color: #fff;
   border-bottom-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -106,7 +103,6 @@ body {
   position: absolute;
 }
 .catalog__card-img .viewing {
-  display: flex;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -114,7 +110,6 @@ body {
   padding: 8px 0;
   text-align: center;
   align-items: center;
-  justify-content: center;
   color: #fff;
   text-transform: uppercase;
   background-color: rgba(0, 0, 0, 0.6);
@@ -122,13 +117,6 @@ body {
   visibility: hidden;
   transition: all 0.6s, 0.85s opacity, 0.55s visibility;
   z-index: 5;
-}
-.catalog__card-img a,
-.catalog__card-img i{
-  color: inherit;
-}
-.catalog__card-img i{
-  margin-right: 5px;
 }
 .catalog__card-img .viewing:hover {
   background-color: rgb(0, 0, 0);
@@ -203,9 +191,6 @@ body {
   cursor: pointer;
   transition-duration: 0.4s;
 }
-.catalog__card-btn a{
-  color: inherit;
-}
 .catalog__card-btn:hover {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
@@ -273,7 +258,7 @@ body {
 }
 .form__contact label {
   font-size: 14px;
-  /* padding-left: 20px; */
+  padding-left: 20px;
   color: #5A5A5A;
   padding-bottom: 3px;
 }
@@ -361,10 +346,6 @@ body {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  transition: 0.5s;
-}
-#toTop:hover{
-  background-color: rgba(0,0,0,1);
 }
 
 .triangle {
@@ -392,8 +373,7 @@ body {
 }
 
 .social {
-  background-color: #37475a;
-  padding: 8px 0;
+  background-color: #000;
 }
 .social__inner {
   display: flex;
@@ -401,20 +381,13 @@ body {
   gap: 5px;
 }
 .social__link {
-  color: #fff;
-  /* padding-top: 5px; */
+  padding-top: 5px;
 }
-/* .social__link img {
+.social__link img {
   height: 20px;
   width: 20px;
-} */
-.social__link i {
-  height: 16px;
-  width: 16px;
 }
-.header .social__link i{
-  margin-right: 10px;
-}
+
 .logo__link img {
   width: 40px;
   height: 40px;
@@ -466,7 +439,6 @@ body {
   left: 0;
   right: 0;
   top: 115px;
-  top: 90px;
   z-index: 30;
 }
 .menu-list__item {
@@ -476,15 +448,12 @@ body {
 .menu-list__link {
   text-transform: uppercase;
   display: block;
-  color: #555;
+  color: #25B244;
   background-color: #fff;
   border-bottom: 1px solid rgb(216, 211, 211);
   padding: 10px 0;
-  transition: 0.3s;
 }
-.menu-list__link:hover {
-  color: #13aff0;
-}
+
 .head {
   background-color: #25B244;
   margin-bottom: 60px;
@@ -596,7 +565,7 @@ body {
   margin-bottom: 20px;
   position: relative;
   height: 280px;
-  background-image: url(/static/product/images/background-card.jpg);
+  background-image: url(../content/background-card.jpg);
 }
 .booking__img img {
   padding: 10px 0;
@@ -694,13 +663,13 @@ body {
   content: "";
   height: 100%;
   width: 5px;
-  background-color: #28a4cd;
+  background-color: #25B244;
   position: absolute;
   left: 0;
   top: 0;
 }
 .footer__column h4 {
-  color: #777;
+  color: #25B244;
 }
 .footer__column ul {
   display: flex;
@@ -713,37 +682,22 @@ body {
 .footer__column a {
   color: #fff;
   padding-bottom: 8px;
-  transition: 0.3s;
 }
-
+.footer__column a:hover {
+  color: #25B244;
+}
 .footer__social ul {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
 .footer__social ul li {
-  border: 1px solid #555;
+  border: 1px solid #fff;
   margin-bottom: 10px;
   padding: 0;
-  border-radius: 2px;
 }
 .footer__social ul a {
   padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 55px;
-  height: 55px;
-}
-.footer__social ul li:hover{
-  border-color:#37589b ;
-}
-.footer__social ul a:hover{
-  color: #37589b;
-}
-
-.footer__inner a:hover{
-  color: #28a4cd;
 }
 
 .copyright {
@@ -755,13 +709,10 @@ body {
   text-align: center;
   color: #fff;
   margin: 0;
-  padding: 15px 0;
+  padding: 5px 0;
   font-size: 12px;
 }
-.contakts__item h4{
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
+
 @media (min-width: 550px) {
   .information__boxes {
     display: flex;
@@ -785,13 +736,6 @@ body {
     width: 33%;
   }
 }
-@media (max-width:768px){
-  .social{
-    display: none;
-  }
-}
-
-
 @media (min-width: 640px) {
   .head__inner {
     display: flex;
@@ -837,18 +781,12 @@ body {
   }
 }
 @media (min-width: 768px) {
-
   .catalog__card {
     width: 22%;
   }
   .container {
     padding: 0 40px;
     max-width: 1360px;
-    margin: 0 auto;
-  }
-  .container-sm {
-    padding: 0 40px;
-    max-width: 1080px;
     margin: 0 auto;
   }
   .footer__inner {

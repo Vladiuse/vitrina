@@ -1,4 +1,6 @@
+
 {%extends 'product/base.html'%}
+{%load static%}
 {%block green-title%}
 {%endblock%}
 
@@ -6,6 +8,7 @@
 {%endblock%}
 
 {%block content%}
+
 <main>
 
   <div class="breadcrumbs">
@@ -27,28 +30,44 @@
   <section class="booking">
     <div class="container">
       <div class="booking__inner">
-        <div class="booking__arrows">
-          <a class="booking__arrows-prew" href="{%url 'product:prev_next_product' 'prev' product.id %}">
-            <span>Prew Product</span>
-          </a>
-          <a class="booking__arrows-next" href="{%url 'product:prev_next_product' 'next' product.id %}">
-            <span>Next Product</span>
-          </a>
-        </div>
+        
         <div class="booking__order">
-          <div class="booking__img">
-            <img src="{{product.image.url}}" alt="image" >
-          </div>
+          <div class="booking__img catalog__card-img">
+            <div class="oferta">oferta</div>
+            <img src="{%static 'product/images/bank.png'%}" alt="image">
+          </div> 
           <div class="booking__column">
-            <h2 class="booking__column-title">{{product.name}}</h2>
-            <div class="booking__column-coast">
+            <div class="booking__arrows">
+              <a class="booking__arrows-prew" href="#">
+                <span>Prew Product</span>
+              </a>
+              <a class="booking__arrows-next" href="#">
+                <span>Next Product</span>
+              </a>
+            </div>
+            <h2 class="booking__column-title">Name Product</h2>
+            <div class=" booking__column-coast catalog__card-coast">
+              {%if product.low_price%}
+              <div class="card__old-coast">
+                <span class="currency">$</span>
+                <span class="price">69.90</span> 
+              </div>
+              {%endif%}
               <span class="currency">$</span>
               <span class="price">283.20</span>
             </div>
             <h3 class="booking__column-subtitle">
               Adiós colesterol y triglicéridos elevados, regula la presión arterial y protege tu corazón
             </h3>
-            <button type="button" class="catalog__card-btn">Añadir al carrito</button>
+            <button type="button" class="catalog__card-btn" id="scroll-order">Añadir al carrito</button>
+            <div class="booking__column-categoria">
+              <h5>Categoría:</h5>
+              <a href="#">mejores productos naturales</a>
+            </div>
+            <div class="booking__column-categoria">
+              <h5>Etiqueta:</h5>
+              <a href="#">producto obaldenno</a>
+            </div>
             <div class="booking-description">
               <div class="description__inner">
                 <h2 class="description__title">Description</h2>
@@ -57,10 +76,10 @@
                   El Seguro Social de Salud (EsSalud) recomendó el consumo de Sacha Inchi, debido a que ayudar a reducir el colesterol y triglicéridos elevados, protege al corazón y es un aliado contra el síndrome metabólico. 
                   El Director del Instituto de Medicina Tradicional-IMET de EsSalud, doctor José Aranda Ventura, comentó que estudios realizados demostraron que el aceite de Sacha Inchi disminuye los niveles de triglicéridos y colesterol. 
                 </p>
-                <p class="description__text">
+                <!-- <p class="description__text">
                   El Seguro Social de Salud (EsSalud) recomendó el consumo de Sacha Inchi, debido a que ayudar a reducir el colesterol y triglicéridos elevados, protege al corazón y es un aliado contra el síndrome metabólico. 
                   El Director del Instituto de Medicina Tradicional-IMET de EsSalud, doctor José Aranda Ventura, comentó que estudios realizados demostraron que el aceite de Sacha Inchi disminuye los niveles de triglicéridos y colesterol. 
-                </p>
+                </p> -->
               </div>
             </div>
           </div>
@@ -69,8 +88,8 @@
     </div>
   </section>
 
-  <!-- <section class="advice">
-    <div class="container mini-land">
+  <section class="advice">
+    <div class="container">
       <div class="advice__inner">
         <h2 class="advice__title">Advice Doctor</h2>
         <h3 class="advice__subtitle">Adiós al colesterol y triglicéridos elevados con Sacha Inchi</h3>
@@ -79,8 +98,7 @@
           El Director del Instituto de Medicina Tradicional-IMET de EsSalud, doctor José Aranda Ventura, comentó que estudios realizados demostraron que el aceite de Sacha Inchi disminuye los niveles de triglicéridos y colesterol. 
         </p>
       </div>
-    </div> -->
-    
+    </div>
   </section>
   <section class="mini-land-wrapp">
     <div class="mini-land">
@@ -91,15 +109,22 @@
 
   <section class="form">
     <div class="container">
-      <div class="form__inner">
+      <div class="form__inner" id="form">
 
-        <div class="booking__order form__order">
-          <div class="booking__img">
-            <img src="{{product.image.url}}" alt="image">
+        <div class="form__order">
+          <div class="catalog__card-img form__img">
+            <div class="oferta">oferta</div>
+            <img src="{%static 'product/images/bank.png'%}" alt="Product">
           </div>
-          <div class="booking__column">
-            <h2 class="booking__column-title">{{product.name}}</h2>
-            <div class="booking__column-coast">
+          <div class="form__column">
+            <h2 class="form__column-title">Name Product</h2>
+            <div class=" booking__column-coast catalog__card-coast">
+              {%if product.low_price%}
+              <div class="card__old-coast">
+                <span class="currency">$</span>
+                <span class="price">69.90</span> 
+              </div>
+              {%endif%}
               <span class="currency">$</span>
               <span class="price">283.20</span>
             </div>
@@ -107,10 +132,20 @@
         </div>
 
         <form class="form__contact">
-          <div class="form__contact-title">Form Submit</div>
-          <input type="text" class="form__contact-input" placeholder="Your name">
-          <input type="email" class="form__contact-input" placeholder="Your email">
-          <textarea class="form__contact-area" type="submit"></textarea>
+          <h3 class="form__contact-title">Make Order</h3>
+          <label for="name">Name
+            <span>*</span>
+          </label>
+          <input type="text" name="name" class="form__contact-input" placeholder="Your name">
+          <label for="name">Name
+            <span>*</span>
+          </label>
+          <input type="tel" class="form__contact-input" placeholder="Your phone">
+          <!-- <textarea class="form__contact-area" type="submit"></textarea> -->
+          <p>
+            <input type="checkbox" id="check1" checked>
+            <label for="check1">Agree with data processing rules</label>
+          </p>
           <button type="submit" class="form__contact-btn catalog__card-btn">Send</button>
         </form>
         
@@ -128,75 +163,76 @@
         </h2>
         <div class="catalog__line line"></div>
         <ul class="catalog__box">
-          {%for product in products%}
           <li class="catalog__card">
             <div class="catalog__card-img">
-              <div class="oferta">oferta</div><!-- скрыт, display: none -->
-              <img src="{{product.image.url}}" alt="Product">
+              <a class="link-img__card" href="#"></a>
+              <div class="oferta">oferta</div>
+              <img src="{%static 'product/images/bank.png'%}" alt="Product">
               <a class="viewing" href="#"> Vista rápida</a>
             </div>
-            <p class="catalog__card-text">Insumos más vendidos</p>
-            <h4 class="catalog__card-title">{{product.name}}</h4>
+            <p class="catalog__card-text">Mejores  productos naturales</p>
+            <h4 class="catalog__card-title">Revitale, producto para las Hemorriodes</h4>
             <div class="catalog__card-coast">
               <div class="card__old-coast">
                 <span class="currency">$</span>
                 <span class="price">69.90</span> 
               </div>
               <span class="currency">$</span>
-              <span class="price">283.20</span> 
+              <span class="price">69.90</span> 
             </div>
             <button type="button" class="catalog__card-btn">Añadir al carrito</button>
           </li>
-          {%endfor%}
-          <!-- <li class="catalog__card">
+          <li class="catalog__card">
             <div class="catalog__card-img">
-              <img src="content/img-first-product-300x300.jpeg" alt="Product">
+              <a class="link-img__card" href="#"></a>
+              <div class="oferta">oferta</div>
+              <img src="{%static 'product/images/bank.png'%}" alt="Product">
               <a class="viewing" href="#"> Vista rápida</a>
             </div>
-            <p class="catalog__card-text">Mejores productos naturales</p>
+            <p class="catalog__card-text">Mejores  productos naturales</p>
             <h4 class="catalog__card-title">Revitale, producto para las Hemorriodes</h4>
             <div class="catalog__card-coast">
+              <div class="card__old-coast">
+                <span class="currency">$</span>
+                <span class="price">69.90</span> 
+              </div>
               <span class="currency">$</span>
               <span class="price">69.90</span> 
             </div>
-            <button class="catalog__card-btn">Añadir al carrito</button>
-          </li> -->
-          <!-- <li class="catalog__card">
+            <button type="button" class="catalog__card-btn">Añadir al carrito</button>
+          </li>
+          <li class="catalog__card">
             <div class="catalog__card-img">
-              <img src="content/img-first-product-300x300.jpeg" alt="Product">
+              <a class="link-img__card" href="#"></a>
+              <div class="oferta">oferta</div>
+              <img src="{%static 'product/images/bank.png'%}" alt="Product">
               <a class="viewing" href="#"> Vista rápida</a>
             </div>
-            <p class="catalog__card-text">Mejores productos naturales</p>
+            <p class="catalog__card-text">Mejores  productos naturales</p>
             <h4 class="catalog__card-title">Revitale, producto para las Hemorriodes</h4>
             <div class="catalog__card-coast">
+              <div class="card__old-coast">
+                <span class="currency">$</span>
+                <span class="price">69.90</span> 
+              </div>
               <span class="currency">$</span>
               <span class="price">69.90</span> 
             </div>
-            <button class="catalog__card-btn">Añadir al carrito</button>
-          </li> -->
+            <button type="button" class="catalog__card-btn">Añadir al carrito</button>
+          </li>
         </ul>
       </div>
     </div>
   </section>
 
 </main>
-<style>
-  .mini-land-wrapp{
-    display: flex;
-    justify-content: center;
-  }
-  .mini-land1{
-    max-width: 900px;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-  }
-  .mini-land1 p{
-    margin: 7px 0;
-    padding: 0;
-  }
-  .mini-land1 h4{
-    margin: 10px 0;
-  }
-</style>
+
+
+<script>
+  $('#scroll-order').click(function(){
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#form").offset().top
+    }, 1000);
+  })
+</script>
 {%endblock%}

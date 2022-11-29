@@ -16,6 +16,7 @@
 <style>
   .main-image-wrapper img{
     width: 100%;
+    margin-top: -60px;
   }
 </style>
 
@@ -41,38 +42,9 @@
 </section>
 {%endblock%}
 {%block content%}
-<main>
-
-    <!-- <section class="head">
-      <div class="container">
-        <div class="head__inner">
-          <h1>Abasteciendo a la industria peruana con insumos y productos de calidad</h1>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- <section class="information">
-      <div class="container">
-        <div class="information__inner">
-          <h2 class="information__title subtitle">Principales Categorias</h2>
-          <div class="information__line line"></div>
-          <div class="information__boxes">
-            <a class="information__link" href="{%url 'product:category' 'diabetes'%}">
-              <img class="information__link-img" src="{%static 'product/images/diabet.jpg'%}" alt="Blog Informations">
-            </a>
-            <a class="information__link" href="{%url 'product:category' 'joints'%}">
-              <img class="information__link-img" src="{%static 'product/images/sust.jpg'%}" alt="Blog Informations">
-            </a>
-            <a class="information__link" href="{%url 'product:category' 'hypertension'%}">
-              <img class="information__link-img" src="{%static 'product/images/hipa.jpg'%}" alt="Blog Informations">
-            </a>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
+  <main>
     <section class="first-product catalog">
-      <div class="container">
+      <div class="container-sm">
         <div class="first-product__inner catalog__inner">
           <h2 class="catalog__title subtitle">
             First-product			
@@ -82,22 +54,36 @@
             {%for product in products%}
             <li class="catalog__card">
               <div class="catalog__card-img">
-                <div class="oferta">oferta</div><!-- скрыт, display: none -->
-                <!-- <a href=""><img src="{{product.image.url}}" alt="Product"></a> -->
-                <img src="{{product.image.url}}" alt="Product">
-                <a class="viewing" href="#"> Vista rápida</a>
+                <a class="link-img__card" href="#"></a>
+                <div class="oferta">oferta</div>
+                <img src="{%static 'product/images/bank.png'%}" alt="Product">
+                
+                <div class="viewing">
+                  <i class="fa-solid fa-eye"></i>
+                  <a class="" href="{%url 'product:product_detail' product.id %}"> Vista rápida</a>
+                </div>
+                <!-- <a class="viewing" href="{%url 'product:product_detail' product.id %}"> Vista rápida</a> -->
               </div>
-              <p class="catalog__card-text">Mejores productos naturales</p>
+              <p class="catalog__card-text">Mejores  productos naturales</p>
               <h4 class="catalog__card-title">{{product.name}}</h4>
               <div class="catalog__card-coast">
+                {%if product.low_price%}
                 <div class="card__old-coast">
                   <span class="currency">$</span>
                   <span class="price">69.90</span> 
                 </div>
+                {%endif%}
                 <span class="currency">$</span>
                 <span class="price">69.90</span> 
               </div>
-              <a type="button" class="catalog__card-btn" href="{%url 'product:product_detail' product.id%}">Añadir al carrito</a>
+              <!-- <a href="{%url 'product:product_detail' product.id %}">
+                <button type="button" class="catalog__card-btn">Añadir al carrito</button>
+              </a> -->
+              <button type="button" class="catalog__card-btn">
+                <a href="{%url 'product:product_detail' product.id %}">
+                  Añadir al carrito
+                </a>
+              </button>
             </li>
             {%endfor%}
           </ul>
@@ -106,7 +92,7 @@
     </section>
 
     <section class="second-product catalog">
-      <div class="container">
+      <div class="container-sm">
         <div class="second-product__inner catalog__inner">
           <h2 class="catalog__title subtitle">
 				    Second-product						
@@ -115,8 +101,10 @@
           <ul class="catalog__box">
             <li class="catalog__card">
               <div class="catalog__card-img">
+                <a class="link-img__card" href="#"></a>
                 <div class="oferta">oferta</div><!-- скрыт, display: none -->
-                <img src="{%static 'product/content/img-second-product-300x300.jpeg'%}" alt="Product">
+                <img src="{%static 'product/images/img-second-product.png'%}" alt="Product">
+                
                 <a class="viewing" href="#"> Vista rápida</a>
               </div>
               <p class="catalog__card-text">Insumos más vendidos</p>
@@ -133,8 +121,9 @@
             </li>
             <li class="catalog__card">
               <div class="catalog__card-img">
+                <a class="link-img__card" href="#"></a>
                 <div class="oferta">oferta</div><!-- скрыт, display: none -->
-                <img src="{%static 'product/content/img-second-product-300x300.jpeg'%}" alt="Product">
+                <img src="{%static 'product/images/img-second-product.png'%}" alt="Product">
                 <a class="viewing" href="#"> Vista rápida</a>
               </div>
               <p class="catalog__card-text">Insumos más vendidos</p>
@@ -151,8 +140,9 @@
             </li>
             <li class="catalog__card">
               <div class="catalog__card-img">
+                <a class="link-img__card" href="#"></a>
                 <div class="oferta">oferta</div><!-- скрыт, display: none -->
-                <img src="{%static 'product/content/img-second-product-300x300.jpeg'%}" alt="Product">
+                <img src="{%static 'product/images/img-second-product.png'%}" alt="Product">
                 <a class="viewing" href="#"> Vista rápida</a>
               </div>
               <p class="catalog__card-text">Insumos más vendidos</p>
@@ -169,8 +159,9 @@
             </li>
             <li class="catalog__card">
               <div class="catalog__card-img">
+                <a class="link-img__card" href="#"></a>
                 <div class="oferta">oferta</div><!-- скрыт, display: none -->
-                <img src="{%static 'product/content/img-second-product-300x300.jpeg'%}" alt="Product">
+                <img src="{%static 'product/images/img-second-product.png'%}" alt="Product">
                 <a class="viewing" href="#"> Vista rápida</a>
               </div>
               <p class="catalog__card-text">Insumos más vendidos</p>
@@ -190,10 +181,13 @@
       </div>
     </section>
   </main>
+
 {%endblock%}
 
 {%block bottom-mini-land%}
-<div class="container mini-land">
-<h1>Main mini-land</h1>
-</div>
+<section class="mini-land-wrapp">
+  <div class="mini-land">
+    <h1>Main mini-land</h1>
+  </div>
+</section>
 {%endblock%}

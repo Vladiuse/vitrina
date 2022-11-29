@@ -1,8 +1,13 @@
 {%extends 'product/products.html'%}
 {%block header-mini-land%}
-<div class="container mini-land">
-    <div>{{category.get_mini_land|safe}}</div>
-</div>
+<!-- <div class="container mini-land">
+    <div></div>
+</div> -->
+<section class="mini-land-wrapp">
+    <div class="mini-land">
+      {{category.get_mini_land|safe}}
+    </div>
+  </section>
 {%endblock%}
 
 {%block bottom-mini-land%}
