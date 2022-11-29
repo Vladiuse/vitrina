@@ -69,7 +69,7 @@
     </div>
   </section>
 
-  <section class="advice">
+  <!-- <section class="advice">
     <div class="container mini-land">
       <div class="advice__inner">
         <h2 class="advice__title">Advice Doctor</h2>
@@ -79,6 +79,13 @@
           El Director del Instituto de Medicina Tradicional-IMET de EsSalud, doctor José Aranda Ventura, comentó que estudios realizados demostraron que el aceite de Sacha Inchi disminuye los niveles de triglicéridos y colesterol. 
         </p>
       </div>
+    </div> -->
+    
+  </section>
+  <section class="mini-land-wrapp">
+    <div class="mini-land">
+      {%block mini-land%}
+      {%endblock%}
     </div>
   </section>
 
@@ -173,4 +180,23 @@
   </section>
 
 </main>
+<style>
+  .mini-land-wrapp{
+    display: flex;
+    justify-content: center;
+  }
+  .mini-land1{
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+  }
+  .mini-land1 p{
+    margin: 7px 0;
+    padding: 0;
+  }
+  .mini-land1 h4{
+    margin: 10px 0;
+  }
+</style>
 {%endblock%}

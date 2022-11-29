@@ -1,6 +1,25 @@
 {%extends 'product/base.html'%}
 {%load static%}
 {%block header-mini-land%}
+<div class="main-image-wrapper">
+  <picture>
+    <source 
+       media="(min-width: 1250px)"
+       srcset="{%static 'product/images/main-image.jpg' %}">
+    <source 
+       media="(min-width: 768px)"
+       srcset="{%static 'product/images/main-image-mob.jpg' %}">
+    <img src="{%static 'product/images/main-image-mob.jpg' %}" 
+    alt="a cute kitten">
+ </picture>
+</div>
+<style>
+  .main-image-wrapper img{
+    width: 100%;
+  }
+</style>
+
+
 <section class="information">
   <div class="container">
     <div class="information__inner">

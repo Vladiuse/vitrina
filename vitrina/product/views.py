@@ -12,7 +12,6 @@ def index(requests):
     return render(requests, 'product/products.html', content)
 
 def category(requests, slug):
-    print(slug)
     category = Category.objects.get(slug=slug)
     products = Offer.objects.filter(category=category)
     content = {
@@ -41,7 +40,7 @@ def product_details(requests, product_id):
             'product': product,
             'products': random_products[:RANDOM_PRODUCT_COUNT],
         }
-        return render(requests, 'product/product_detail.html', content)
+        return render(requests, f'product/mini_lands/{product.mini_land}.html', content)
 
 
 def leads(requests):
