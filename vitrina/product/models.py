@@ -62,6 +62,7 @@ class Offer(models.Model):
     price = models.CharField(max_length=20, blank=True, verbose_name='Цена оффера + валюта')
     image = models.ImageField(blank=True, verbose_name='картинка оффера', upload_to='offers')
     public = models.BooleanField(blank=True, default=False, verbose_name='Опубликован')
+    low_price = models.BooleanField(default=False, blank=True)
 
     mini_land = models.CharField(max_length=30, blank=True, verbose_name='Пусть в мини прокле оффера')
 
