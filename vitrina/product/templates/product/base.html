@@ -99,8 +99,108 @@
         margin-bottom: 2px;
         font-size: 17px;
       }
+      .mini-land .comm-vars{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      .mini-land .comm-vars button{
+        color: #999;
+        width: 100%;
+        font-size: 15px;
+        background-color: inherit;
+        border: none;
+        border-top: 2px solid;
+        border-bottom: 2px solid;
+        border-color: #eaeaea;
+        height: 50px;
+        text-transform: uppercase;
+        transition: 0.3s;
+      }
+      .mini-land .comm-vars span{
+        margin: 0 2px;
+      }
+      .mini-land .comm-vars button.click{
+        cursor: pointer;
+        max-width: 150px;
+      }
+      .mini-land .comm-vars button.click:hover{
+        color: #28a4cd;
+      }
+      .mini-land .comm-vars button.click.active{
+        color: #28a4cd;
+        border-top: 2px solid;
+        border-bottom: 2px solid;
+        border-color: #28a4cd;
+        border-left: none;
+        border-right: none;
+      }
+
+      .mini-land .comm-form-wrapp{
+        margin-bottom: 30px;
+      }
+      
+      .mini-land .comm-form-wrapp textarea{
+        padding: 5px;
+        color: #555;
+        border-radius: 3px;
+        width: 100%;
+        border: 1px solid #ddd;
+        outline: none;
+      }
+      .mini-land .comm-form-wrapp textarea:focus-visible{
+        border: 1px solid red;
+      }
+      .mini-land .comm-form-wrapp input{
+        padding: 5px;
+        color: #555;
+        border-radius: 3px;
+        width: 90%;
+        border: 1px solid #ddd;
+        outline: none;
+        height: 30px;
+      }
+      .mini-land .comm-form-wrapp input:focus-visible{
+        border: 1px solid red;
+      }
+      .mini-land .comm-form-wrapp label{
+
+      }
+      .mini-land .comm-form-wrapp label span{
+        color: red;
+      }
+      .mini-land .comm-form-wrapp .row{
+
+        display: flex;
+        flex-direction: row;
+      }
+      .mini-land .comm-form-wrapp .row .col{
+        flex: 1;
+        padding: 5px 0;
+      }
+      .mini-land .comm-form-wrapp button{
+        cursor: pointer;
+        border: none;
+        background-color: #28a4cd;
+        color: #fff;
+        width: 80px;
+        height: 35px;
+        text-align: center;
+        opacity: 0.65;
+      }
+      .mini-land .comm-form-wrapp button.active{
+        opacity: 1;
+      }
+      .mini-land .comm-form-wrapp button.active:hover{
+        background-color: #0b7cac;
+      }
+      .mini-land .comm-form-wrapp button.active i{
+        display: none;
+      }
       /* MINI_LAND STYLES */
     </style>
+
 </head>
 
 <body>
@@ -248,4 +348,28 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="{%static 'product/js/main.js'%}?v=0"></script>
+  <script>
+    // переключение между коментами и формой
+    $('.comm-vars button').click(function(){
+      $('.comm-vars button').removeClass('active');
+      $(this).addClass('active')
+      if ($(this).data('show') == 'comms'){
+        $('.comment-wrapper .comment').show();
+        $('#comm-form').hide();
+      } else {
+        $('.comment-wrapper .comment').hide();
+        $('#comm-form').show();
+      }
+    })
+
+    // рАюота формыв для коментария
+    $('.mini-land .comm-form-wrapp form').submit(function(f){
+      f.preventDefault();
+      $('.mini-land .comm-form-wrapp form button').removeClass('active');
+      setTimeout(function() {
+        $('.mini-land .comm-form-wrapp form').hide()
+        $('#comm-success').show();
+        }, 1000);
+    })
+  </script>
   </html>
