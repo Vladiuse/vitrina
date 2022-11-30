@@ -13,6 +13,7 @@ class Category(models.Model):
     MINI_LANDS_DIR_NAME = 'categorys_mini_land'
     slug = models.SlugField(unique=True)
     name = models.CharField(max_length=20, verbose_name='Имя категории')
+    desc = models.CharField(max_length=255, verbose_name='Описание категории', blank=True)
     mini_land = models.CharField(max_length=30, blank=True, verbose_name='Пусть в мини прокле оффера')
 
     def __str__(self):
@@ -59,11 +60,13 @@ class Offer(models.Model):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=255, verbose_name='Название оффера', unique=True)
     desc = models.TextField(blank=True, verbose_name='Описание оффера')
+    old_price = models.CharField(max_length=20, blank=True, verbose_name='Старая Цена оффера + валюта')
     price = models.CharField(max_length=20, blank=True, verbose_name='Цена оффера + валюта')
     image = models.ImageField(blank=True, verbose_name='картинка оффера', upload_to='offers')
-    public = models.BooleanField(blank=True, default=False, verbose_name='Опубликован')
-    low_price = models.BooleanField(default=False, blank=True)
+    doctor_rank = models.CharField(max_length=10, verbose_name='Оценка доктора', blank=True)
+    low_price = models.BooleanField(default=False, blank=True, verbose_name='Товар по скидке?')
 
+    public = models.BooleanField(blank=True, default=False, verbose_name='Опубликован')
     mini_land = models.CharField(max_length=30, blank=True, verbose_name='Пусть в мини прокле оффера')
 
     def __str__(self):

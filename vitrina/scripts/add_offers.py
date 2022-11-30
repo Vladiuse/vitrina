@@ -10,7 +10,7 @@ LOREM = 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
 PATH = '/home/vlad/PycharmProjects/vitrina/store'
 PATH_TO_SAVE_IMAGE = '/home/vlad/PycharmProjects/vitrina/vitrina/media/offers'
 
-Offer.objects.all().delete()
+# Offer.objects.all().delete()
 categorys = Category.objects.all()
 
 for i in os.listdir(PATH):

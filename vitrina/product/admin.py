@@ -5,7 +5,7 @@ from .models import Offer, Lead, AdcomboOffer, LeadRockOffer, KmaOffer, Category
 # Register your models here.
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['slug', 'name']
+    list_display = ['slug', 'name', 'desc']
     list_display_links = list_display
 
 class LeadAdmin(admin.ModelAdmin):
