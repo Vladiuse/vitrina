@@ -75,8 +75,11 @@ body {
 }
 .catalog__card-img {
   position: relative;
-  height: 220px;
-  background-image: url(/static/product/images/background-card.jpg);
+  max-height: 220px;
+  /* background-image: url(/static/product/images/background-card.jpg); */
+}
+.catalog__box .catalog__card-img{
+  /* background-image: url(/static/product/images/background-card.jpg); */
 }
 .catalog__card-img .link-img__card {
   position: absolute;
@@ -203,6 +206,15 @@ body {
   padding: 10px 5px;
   cursor: pointer;
   transition-duration: 0.4s;
+}
+.catalog__card-btn:hover{
+  background-color: #37475a;
+  color: #28a4cd;
+  /* font-size: 16px; */
+
+  /* border: 2px solid #28a4cd; */
+  border-radius: 5px;
+  /* padding: 6px 5px; */
 }
 .catalog__card-btn a{
   color: inherit;
@@ -451,12 +463,12 @@ body {
 .menu__btn::after {
   content: "";
   width: 20px;
-  height: 2px;
-  background-color: #25B244;
+  height: 3px;
+  background-color: #555;
   position: absolute;
   top: 0;
   left: 0;
-  box-shadow: 0 7px 0 0 #25B244, 0 14px 0 0 #25B244;
+  box-shadow: 0 7px 0 0 #555, 0 14px 0 0 #555;
 }
 
 .menu-list {
@@ -597,7 +609,7 @@ body {
   margin-bottom: 20px;
   position: relative;
   height: 280px;
-  background-image: url(/static/product/images/background-card.jpg);
+  /* background-image: url(/static/product/images/background-card.jpg); */
 }
 .booking__img img {
   padding: 10px 0;
@@ -654,6 +666,12 @@ body {
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
+}
+.booking__column-categoria.rank{
+  gap: 2px;
+}
+.rank i{
+  color: #ffbe00;
 }
 .booking__column-categoria h5 {
   margin: 0;

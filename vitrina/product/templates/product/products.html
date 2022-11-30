@@ -66,7 +66,12 @@
                 </div>
                 <!-- <a class="viewing" href="{%url 'product:product_detail' product.id %}"> Vista rápida</a> -->
               </div>
-              <p class="catalog__card-text">Mejores  productos naturales</p>
+              <p class="catalog__card-text">
+                {%if product.desc%}
+                {{product.desc}}
+                {%else%}
+                Mejores productos naturales
+                {%endif%}</p>
               <h4 class="catalog__card-title">{{product.name}}</h4>
               <div class="catalog__card-coast">
                 {%if product.low_price%}

@@ -73,6 +73,9 @@
         font-style: italic;
         text-align: center;
       }
+      .mini-land ul{
+        margin-bottom: 20px;
+      }
       .mini-land ul li{
         list-style-type: circle;
         list-style-position: inside;
@@ -165,13 +168,13 @@
           <h3 class="categories__title">Principales Categorías</h3>
           <ul class="categories__list">
             <li class="categories__item">
-              <a class="categories__link" href="#">First-product</a>
+              <a class="categories__link" href="{%url 'product:category' 'diabetes'%}">Диабет</a>
             </li>
             <li class="categories__item">
-              <a class="categories__link" href="#">Second-product</a>
+              <a class="categories__link" href="{%url 'product:category' 'joints'%}">Суставы</a>
             </li>
             <li class="categories__item">
-              <a class="categories__link" href="#">Third-product</a>
+              <a class="categories__link" href="{%url 'product:category' 'hypertension'%}">Гипертония</a>
             </li>
           </ul>
         </div>
@@ -196,13 +199,13 @@
               <h4>Nueva dirección</h4>
               <a class="contakts__link" href="#">JR. Volcan Misti MZA. D12 Lote. 5E URB. Las Delicias De Villa, Chorrillos</a>
             </li>
-            <li class="contakts__item">
+            <!-- <li class="contakts__item">
               <h4>Móvil:</h4>
               <a class="contakts__link" href="#">+97-429-40-96</a>
-            </li>
+            </li> -->
             <li class="contakts__item">
               <h4>Correo electrónico:</h4>
-              <a class="contakts__link" href="#">ventas@andianperu.com</a>
+              <a class="contakts__link" href="#">antony@andrabin.com</a>
             </li>
           </ul>
         </div>

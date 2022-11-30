@@ -5,7 +5,7 @@ from .forms import LeadForm
 
 
 def index(requests):
-    products = Offer.published.all()
+    products = Offer.published.all().order_by('-pk')
     content = {
         'products': products,
     }
