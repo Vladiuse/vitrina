@@ -56,9 +56,9 @@
               <div class="catalog__card-img">
                 <a class="link-img__card" href="#"></a>
                 {%if product.low_price%}
-                <div class="oferta">oferta</div>
+                <!-- <div class="oferta">oferta</div> -->
                 {%endif%}
-                <img src="{%static 'product/images/bank.png'%}" alt="Product">
+                <img src="{{product.image.url}}" alt="Product">
                 
                 <div class="viewing">
                   <i class="fa-solid fa-eye"></i>
@@ -71,12 +71,12 @@
               <div class="catalog__card-coast">
                 {%if product.low_price%}
                 <div class="card__old-coast">
-                  <span class="currency">$</span>
-                  <span class="price">69.90</span> 
+                  <!-- <span class="currency">$</span> -->
+                  <span class="price">{{product.old_price}}</span> 
                 </div>
                 {%endif%}
-                <span class="currency">$</span>
-                <span class="price">69.90</span> 
+                <!-- <span class="currency">$</span> -->
+                <span class="price">{{product.price}}</span> 
               </div>
               <!-- <a href="{%url 'product:product_detail' product.id %}">
                 <button type="button" class="catalog__card-btn">Añadir al carrito</button>
@@ -187,9 +187,7 @@
 {%endblock%}
 
 {%block bottom-mini-land%}
-<section class="mini-land-wrapp">
-  <div class="mini-land">
-    <h1>Main mini-land</h1>
-  </div>
+<section class="container mini-land">
+    <h1 class="center">Тут будет распологаться мини-прокла главной страницы</h1>
 </section>
 {%endblock%}

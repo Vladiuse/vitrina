@@ -14,7 +14,7 @@
   <div class="breadcrumbs">
     <div class="container">
       <h2 class="breadcrumbs__title">
-        Description
+        {{product.name}}
       </h2>
       <ul class="breadcrumbs__list">
         <li class="breadcrumbs__item">
@@ -34,7 +34,7 @@
         <div class="booking__order">
           <div class="booking__img catalog__card-img">
             <div class="oferta">oferta</div>
-            <img src="{%static 'product/images/bank.png'%}" alt="image">
+            <img src="{{product.image.url}}" alt="image">
           </div> 
           <div class="booking__column">
             <div class="booking__arrows">
@@ -45,30 +45,37 @@
                 <span>Next Product</span>
               </a>
             </div>
-            <h2 class="booking__column-title">Name Product</h2>
+            <h2 class="booking__column-title">{{product.name}}</h2>
             <div class=" booking__column-coast catalog__card-coast">
               {%if product.low_price%}
               <div class="card__old-coast">
-                <span class="currency">$</span>
-                <span class="price">69.90</span> 
+                <!-- <span class="currency">$</span> -->
+                <span class="price">{{product.old_price}}</span> 
               </div>
               {%endif%}
-              <span class="currency">$</span>
-              <span class="price">283.20</span>
+              <!-- <span class="currency">$</span> -->
+              <span class="price">{{product.price}}</span>
             </div>
             <h3 class="booking__column-subtitle">
-              Adiós colesterol y triglicéridos elevados, regula la presión arterial y protege tu corazón
+              {%if product.desc%}
+              {{product.desc}}
+              {%else%}
+              Adiós colesterol y triglicéridos elevados, regula la presión arterial y protege tu corazón (NO DESCRIPTION)
+              {%endif%}
             </h3>
+            {%block product_desc%}
+              <!-- Блоки с миниописанием -->
+              {%endblock%}
             <button type="button" class="catalog__card-btn" id="scroll-order">Añadir al carrito</button>
             <div class="booking__column-categoria">
               <h5>Categoría:</h5>
-              <a href="#">mejores productos naturales</a>
+              <a href="#">{{product.category.desc}}</a>
             </div>
             <div class="booking__column-categoria">
-              <h5>Etiqueta:</h5>
-              <a href="#">producto obaldenno</a>
+              <h5>Reseñas positivas:</h5>
+              <a href="#">{{product.doctor_rank}}</a>
             </div>
-            <div class="booking-description">
+            <!-- <div class="booking-description">
               <div class="description__inner">
                 <h2 class="description__title">Description</h2>
                 <h3 class="description__subtitle">Adiós al colesterol y triglicéridos elevados con Sacha Inchi</h3>
@@ -76,19 +83,19 @@
                   El Seguro Social de Salud (EsSalud) recomendó el consumo de Sacha Inchi, debido a que ayudar a reducir el colesterol y triglicéridos elevados, protege al corazón y es un aliado contra el síndrome metabólico. 
                   El Director del Instituto de Medicina Tradicional-IMET de EsSalud, doctor José Aranda Ventura, comentó que estudios realizados demostraron que el aceite de Sacha Inchi disminuye los niveles de triglicéridos y colesterol. 
                 </p>
-                <!-- <p class="description__text">
+                <p class="description__text">
                   El Seguro Social de Salud (EsSalud) recomendó el consumo de Sacha Inchi, debido a que ayudar a reducir el colesterol y triglicéridos elevados, protege al corazón y es un aliado contra el síndrome metabólico. 
                   El Director del Instituto de Medicina Tradicional-IMET de EsSalud, doctor José Aranda Ventura, comentó que estudios realizados demostraron que el aceite de Sacha Inchi disminuye los niveles de triglicéridos y colesterol. 
-                </p> -->
+                </p>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="advice">
+  <!-- <section class="advice">
     <div class="container">
       <div class="advice__inner">
         <h2 class="advice__title">Advice Doctor</h2>
@@ -99,13 +106,16 @@
         </p>
       </div>
     </div>
-  </section>
-  <section class="mini-land-wrapp">
+  </section> -->
+  <!-- <section class="mini-land-wrapp">
     <div class="mini-land">
+      
+    </div>
+  </section> -->
+  <div class="container-sm mini-land">
       {%block mini-land%}
       {%endblock%}
-    </div>
-  </section>
+  </div>
 
   <section class="form">
     <div class="container">
@@ -114,19 +124,19 @@
         <div class="form__order">
           <div class="catalog__card-img form__img">
             <div class="oferta">oferta</div>
-            <img src="{%static 'product/images/bank.png'%}" alt="Product">
+            <img src="{{product.image.url}}" alt="Product">
           </div>
           <div class="form__column">
-            <h2 class="form__column-title">Name Product</h2>
+            <h2 class="form__column-title">{{product.name}}</h2>
             <div class=" booking__column-coast catalog__card-coast">
               {%if product.low_price%}
               <div class="card__old-coast">
-                <span class="currency">$</span>
-                <span class="price">69.90</span> 
+                <!-- <span class="currency">$</span> -->
+                <span class="price">{{product.old_price}}</span> 
               </div>
               {%endif%}
-              <span class="currency">$</span>
-              <span class="price">283.20</span>
+              <!-- <span class="currency">$</span> -->
+              <span class="price">{{product.price}}</span>
             </div>
           </div>
         </div>

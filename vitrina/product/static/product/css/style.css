@@ -87,7 +87,7 @@ body {
   width: 100%;
 }
 .catalog__card-img img {
-  padding: 10px 0;
+  /* padding: 10px 0; */
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
@@ -162,6 +162,7 @@ body {
 .catalog__card-coast {
   display: flex;
   justify-content: start;
+   align-items: start; /*МОИ  */
   margin: 0 auto 10px;
   -webkit-user-select: none;
      -moz-user-select: none;
