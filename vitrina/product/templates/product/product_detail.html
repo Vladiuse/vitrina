@@ -38,10 +38,10 @@
           </div> 
           <div class="booking__column">
             <div class="booking__arrows">
-              <a class="booking__arrows-prew" href="#">
+              <a class="booking__arrows-prew" href="{%url 'product:prev_next_product' 'prev' product.id %}">
                 <span>Prew Product</span>
               </a>
-              <a class="booking__arrows-next" href="#">
+              <a class="booking__arrows-next" href="{%url 'product:prev_next_product' 'next' product.id %}">
                 <span>Next Product</span>
               </a>
             </div>

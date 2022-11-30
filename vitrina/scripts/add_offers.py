@@ -10,7 +10,9 @@ LOREM = 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
 PATH = '/home/vlad/PycharmProjects/vitrina/store'
 PATH_TO_SAVE_IMAGE = '/home/vlad/PycharmProjects/vitrina/vitrina/media/offers'
 
-# Offer.objects.all().delete()
+Offer.objects.exclude(pk__in=[59,58,66]).delete()
+# for i in Offer.objects.exclude(pk__in=[59,58,66]):
+#     print(i)
 categorys = Category.objects.all()
 
 for i in os.listdir(PATH):
@@ -23,7 +25,7 @@ for i in os.listdir(PATH):
     offer.name = img_name
     offer.desc = LOREM
     offer.price = price
-    offer.published = True
+    offer.public = True
     offer.category = categorys.get(pk=r.randint(1,3))
     offer.image = os.path.join('offers', image_no_space_name)
     print(os.path.join('media', image_no_space_name))
