@@ -1,6 +1,7 @@
 
 {%extends 'product/product_detail.html'%}
 {%load static%}
+{%load comment_block%}
 
 {%block product_desc%}
 <!-- Блоки с миниописанием -->
@@ -76,44 +77,10 @@
 <p>Llevamos tres meses distribuyendo Sustarox. Esta oportunidad ya la aprovecharon varios miles de peruano. Les pedimos a todos los que recibieron Sustarox que evalúen la eficacia del medicamento en una escala de 1 a 10. Por el momento, más de 3'700 personas participaron en la encuesta y la evaluación promedia del medicamento es 9,72 de 10.</p>
 <p>Como puede ver, ¡Sustarox ayudó a devolver la movilidad y deshacerse del dolor a miles de peruano y casi gratis!</p>
 <h3> Más de 80 comentarios</h3>
-<div class="comment-wrapper">
-  <div class="comm-vars">
-    <button></button>
-    <button class="active click" id="comm-read" data-show="comms">REad comments</button>
-    <span></span>
-    <button class="click" id="comm-write"  data-show="comm-form">Write comment</button>
-    <button></button>
-  </div>
-  <div class="comm-form-wrapp" id="comm-form" style="display: none;">
-    <p id="comm-success" style="display:none">Спасибо!</p>
-    <form action="">
-      <label>Enter your comment<span>*</span></label>
-    <textarea name="" id="" cols="30" rows="7" required></textarea>
-    <div class="row">
-      <div class="col">
-        <label> Enter your name<span>*</span></label>
-      </div>
-      <div class="col">
-        <label> Enter your Email<span>*</span></label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <input type="text"  placeholder="Your name" required>
-      </div>
-      <div class="col">
-        <input type="email"  placeholder="Your email" required>
-      </div>
-    </div>
-    <input type="checkbox" required>
-    <label>I agree <span>*</span></label>
-      <br>
-    <button class="active">
-      <i class='fa fa-circle-o-notch fa-spin'></i>
-      Send</button>
-    </form>
-  </div>
 
+
+<div class="comment-wrapper">
+  {%comment_block%}
   <div class="comment">
     <img src="{%static 'product/images/comments/w1.jpg'%}">
     <div>

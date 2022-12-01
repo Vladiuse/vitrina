@@ -211,7 +211,7 @@
 
   <header class="header">
     <div class="social">
-      <div class="container">
+      <div class="container-sm">
         <div class="social__inner">
           <a class="social__link" href="#">
             <i class="fa-brands fa-facebook"></i>
@@ -229,7 +229,7 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container-sm">
       <div class="header__inner">
         <div class="logo">
           <a class="logo__link" href="{%url 'product:products'%}">
@@ -286,14 +286,14 @@
           <h3 class="navigation__title">Navegación</h3>
           <ul class="navigation__list">
             <li class="navigation__item">
-              <a class="navigation__link" href="#">Carrito</a>
+              <a class="navigation__link" href="#">Policy</a>
             </li>
             <li class="navigation__item">
-              <a class="navigation__link" href="#">Description</a>
+              <a class="navigation__link" href="#">Terms of Use</a>
             </li>
-            <li class="navigation__item">
+            <!-- <li class="navigation__item">
               <a class="navigation__link" href="#">Nosotros</a>
-            </li>
+            </li> -->
           </ul>
         </div>
         <div class="footer__column contakts">
@@ -375,5 +375,10 @@
         $('#comm-success').show();
         }, 1000);
     })
+
+    // dibale add links w href=#
+    $('a[href="#"]').click(function(e){
+    e.preventDefault();
+  })
   </script>
   </html>
