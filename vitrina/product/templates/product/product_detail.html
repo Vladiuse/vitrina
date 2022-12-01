@@ -12,7 +12,7 @@
 <main>
 
   <div class="breadcrumbs">
-    <div class="container">
+    <div class="container-sm">
       <h2 class="breadcrumbs__title">
         {{product.name}}
       </h2>
@@ -80,9 +80,11 @@
               <i class="fa-solid fa-star"></i>
               <a href="#">{{product.doctor_rank}}</a>
             </div>
-            <!-- <div class="booking-description">
+            <div class="booking-description">
               <div class="description__inner">
-                <h2 class="description__title">Description</h2>
+                {%block product_description%}
+                {%endblock%}
+                <!-- <h2 class="description__title">Description</h2>
                 <h3 class="description__subtitle">Adiós al colesterol y triglicéridos elevados con Sacha Inchi</h3>
                 <p class="description__text">
                   El Seguro Social de Salud (EsSalud) recomendó el consumo de Sacha Inchi, debido a que ayudar a reducir el colesterol y triglicéridos elevados, protege al corazón y es un aliado contra el síndrome metabólico. 
@@ -91,9 +93,9 @@
                 <p class="description__text">
                   El Seguro Social de Salud (EsSalud) recomendó el consumo de Sacha Inchi, debido a que ayudar a reducir el colesterol y triglicéridos elevados, protege al corazón y es un aliado contra el síndrome metabólico. 
                   El Director del Instituto de Medicina Tradicional-IMET de EsSalud, doctor José Aranda Ventura, comentó que estudios realizados demostraron que el aceite de Sacha Inchi disminuye los niveles de triglicéridos y colesterol. 
-                </p>
+                </p> -->
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>

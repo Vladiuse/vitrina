@@ -1,5 +1,16 @@
 {%extends 'product/product_detail.html'%}
+{%load comment_block%}
 {%load static%}
+
+
+{%block product_desc%}
+<p><b>Тут первое крастнок описание <i>(преимущества)</i>.</b> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore ullam temporibus cumque laboriosam voluptate incidunt nemo enim saepe quam exercitationem fuga commodi explicabo cum minima beatae autem, animi, odit quod?</p>
+{%endblock%}
+
+{%block product_description%}
+<p><b>Тут второе описаниe.</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum id cupiditate expedita magnam iste amet consequuntur iusto modi necessitatibus repudiandae. Rem est, ipsam molestias odit ut consequatur itaque magni laboriosam.</p>
+{%endblock%}
+
 {%block mini-land%}
 <h1 class="center">Мини лэнд товара <i>(зашлушка)</i></h1>
 <div class="imagw-wrap">
@@ -10,4 +21,31 @@
 <h3 class="red">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, ea nobis. Dignissimos, quae deserunt! Repudiandae eius magni accusantium numquam autem provident. Inventore iste perspiciatis molestias dolores ullam eaque ratione voluptatibus.</p>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, ea nobis. Dignissimos, quae deserunt! Repudiandae eius magni accusantium numquam autem provident. Inventore iste perspiciatis molestias dolores ullam eaque ratione voluptatibus.</p>
+<h3> Más de 80 comentarios</h3>
+
+<div class="comment-wrapper">
+  {%comment_block%}
+  <div class="comment">
+    <img src="{%static 'product/images/comments/no_avatar.jpg'%}">
+    <div>
+      <p class="user-name">NAMENAME</p>
+    <p>xxxxxxxxxxxxxxxxxxxxxx</p>
+    </div>
+  </div>
+  <div class="comment">
+    <img src="{%static 'product/images/comments/no_avatar.jpg'%}">
+    <div>
+      <p class="user-name">NAMENAME</p>
+    <p>xxxxxxxxxxxxxxxxxxxxxx</p>
+    </div>
+  </div>
+  <div class="comment">
+    <img src="{%static 'product/images/comments/no_avatar.jpg'%}">
+    <div>
+      <p class="user-name">NAMENAME</p>
+    <p>xxxxxxxxxxxxxxxxxxxxxx</p>
+    </div>
+  </div>
+
+</div>
 {%endblock%}
