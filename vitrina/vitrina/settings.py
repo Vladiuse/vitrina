@@ -103,29 +103,29 @@ WSGI_APPLICATION = 'vitrina.wsgi.application'
 # }
 
 # for MySql local server
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': get_secret('name'),
-#         'USER': get_secret('user'),
-#         'PASSWORD':  get_secret('password'),
-#         'HOST': 'localhost',
-#
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': get_secret('name'),
+        'USER': get_secret('user'),
+        'PASSWORD':  get_secret('password'),
+        'HOST': 'localhost',
+
+    }
+}
 
 # for MySql database remote
-DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': get_secret('name'),
-         'USER': get_secret('user'),
-         'PASSWORD': get_secret('password'),
-         'HOST': 'vladiuse.beget.tech',
-         'PORT': '3306',
-
-     }
- }
+# DATABASES = {
+#      'default': {
+#          'ENGINE': 'django.db.backends.mysql',
+#          'NAME': get_secret('name'),
+#          'USER': get_secret('user'),
+#          'PASSWORD': get_secret('password'),
+#          'HOST': 'vladiuse.beget.tech',
+#          'PORT': '3306',
+#
+#      }
+#  }
 
 
 # Password validation

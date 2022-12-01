@@ -1,0 +1,78 @@
+{%extends 'product/product_detail.html'%}
+{%load comment_block%}
+{%load static%}
+
+
+{%block product_desc%}
+<!-- <p>"Cardioton NO SOLO ELIMINA LOS SÍNTOMAS, TAMBIÉN ELIMINA LA CAUSA DE LA HIPERTENSIÓN
+    La mayoría de los remedios modernos contra la hipertensión no curan, sino bajan temporalmente la tensión. No está mal, pero los pacientes se ven obligados a tomar estos remedios el resto de su vida, exponiendo su salud al estrés y el peligro. Para mejorar la situación se ha desarrollado un producto que no solo elimina los síntomas sino que también normaliza la tensión. Actualmente, Cardioton es el producto más eficiente para el tratamiento de la hipertensión, lo que se confirmado con estudios clínicos.</p> -->
+{%endblock%}
+
+{%block product_description%}
+ <h3 class="description__title">Cardioton NO SOLO ELIMINA LOS SÍNTOMAS, TAMBIÉN ELIMINA LA CAUSA DE LA HIPERTENSIÓN</h3>
+    <p class="description__text">La mayoría de los remedios modernos contra la hipertensión no curan, sino bajan temporalmente la tensión. No está mal, pero los pacientes se ven obligados a tomar estos remedios el resto de su vida, exponiendo su salud al estrés y el peligro. Para mejorar la situación se ha desarrollado un producto que no solo elimina los síntomas sino que también normaliza la tensión. Actualmente, Cardioton es el producto más eficiente para el tratamiento de la hipertensión, lo que se confirmado con estudios clínicos.</p>
+    <!-- <p><b class="upp">xxxxx</b> - xxxxxx</p> -->
+    <div class="mini-land">
+        <ul>
+            <li>Normaliza la tensión 10 minutos después de tomarlo</li>
+            <li>Tiene efecto de acción prolongado</li>
+            <li>Protege contra las crisis hipertensivas</li>
+            <li>Elimina las causas de los problemas de tensión</li>
+        </ul>
+    </div>
+{%endblock%}
+
+{%block mini-land%}
+
+<h3> Dr. Brugada</h3>
+<p><b> Dr. Brugada, usted ha dicho a menudo que el equilibrio de la sangre es la base de la salud. ¿Qué quiere decir?</b></p>
+<p>Dr. Brugada: Es sencillo. En la infancia y la adolescencia, nuestros vasos son elásticos y limpios, por lo que la nutrición de los órganos es máxima. Mucho cambia con la edad. Hay mucho más colesterol malo y el porcentaje de colesterol bueno disminuye.
+</p>
+<p>Todo esto escoria nuestros vasos, se vuelven "sucios". El equilibrio sanguíneo está alterado.</p>
+<p><b>- Doctor, expongamos claramente el síntoma, que nos da una señal inequívoca de que los vasos necesitan ser limpiados.</b></p>
+<p>Dr. Brugada: Los principales síntomas incluyen:</p>
+<ul>
+    <li>Presión sanguínea alta</li>
+    <li>Migraña</li>
+    <li>Deterioro de la memoria</li>
+    <li>Fatiga crónica</li>
+    <li>Insomnio</li>
+    <li>Problemas en la intimidad</li>
+    <li>Discapacidades visuales y auditivas</li>
+    <li>Dificultad respiratoria y angina de pecho</li>
+    <li>Piel pálida en brazos y piernas</li>
+    <li>Dolor muscular y articular</li>
+</ul>
+<p>Dr. Brugada: Hasta hace poco, el proceso de limpieza de los vasos sanguíneos era extremadamente difícil. Si no se adoptan métodos quirúrgicos, los vasos pueden limpiarse utilizando un complejo de fármacos potentes especiales. Con un precio muy elevado, no garantizaban el efecto, ya que se requería una selección individual de componentes para cada paciente.</p>
+<p>Ahora esto no es necesario, ya que mis colegas del Instituto de Enfermedades Cardiovasculares han creado un remedio bueno y barato, que han llamado Cardioton</p>
+<p>El fármaco regula la presión arterial, controla los niveles de azúcar en sangre, trata la hipertensión y ayuda a reducir el peso. Por lo tanto, es perfecto para nuestros propósitos.</p>
+<p>Cardioton se considera el tratamiento preferido en Japón e Israel, pero desgraciadamente en nuestro país elegimos los métodos más agresivos con muchos efectos secundarios. Esto se debe a la escasa concienciación de pacientes y médicos.</p>
+
+<h3> Más de 80 comentarios</h3>
+
+<div class="comment-wrapper">
+  {%comment_block%}
+  <div class="comment">
+    <img src="{%static 'product/images/comments/no_avatar.jpg'%}">
+    <div>
+      <p class="user-name">José</p>
+    <p>¡El suplemento es muy efectivo! ¡Apuesto! Tuve una presión arterial de 140/90 durante muchos años. Después del tratamiento, la presión volvió a ser de 125/80. ¡Me siento muy bien!</p>
+    </div>
+  </div>
+  <div class="comment">
+    <img src="{%static 'product/images/comments/no_avatar.jpg'%}">
+    <div>
+      <p class="user-name">Lara</p>
+    <p>Yo lo compré para mi mamá. Los ancianos necesitan especialmente este medicamento. Yo mismo la tomaré, aunque sólo tengo 36 años. Pero la prevención es una buena idea.</p>
+    </div>
+  </div>
+  <div class="comment">
+    <img src="{%static 'product/images/comments/no_avatar.jpg'%}">
+    <div>
+      <p class="user-name">Ricardo</p>
+    <p>Gracias por la rapidez de la entrega, ya he recibido su producto, estoy aquí para darles las gracias. Todo lo mejor para ustedes.</p>
+    </div>
+  </div>
+
+</div>
+{%endblock%}
