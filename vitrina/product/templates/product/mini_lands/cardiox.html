@@ -1,0 +1,67 @@
+{%extends 'product/product_detail.html'%}
+{%load static%}
+{%load comment_block%}
+
+{%block product_desc%}
+<!-- Блоки с миниописанием -->
+<div class="mini-land">
+    <ul>
+        <li>Normaliza la presión arterial dentro de las primeras 6 horas debido a los bioflavonoides</li>
+        <li>Restaura el tono y la elasticidad de los vasos sanguíneos con un solo tratamiento</li>
+        <li>Seguro para cualquier edad Efectivo en las etapas I, II y III de la hipertensión</li>
+    </ul>
+</div>
+<!-- Блоки с миниописанием -->
+{%endblock%}
+{%block product_description%}
+    <h3 class="description__subtitle">"Toxinas en los vasos sanguíneos
+        Cardiox mejora la actividad cardíaca, limpia los vasos sanguíneos de residuos"</h3>
+    <p class="description__text">"Sistema nervioso sobrecargado (estrés, insomnio, etc.) Cardiox alivia la ansiedad"</p>
+    <p class="description__text">"Exceso de peso
+        Cardiox estimula el adelgazamiento, el metabolismo y el funcionamiento de los riñones"</p>
+    <p class="description__text">Cardiox es el resultado de pruebas de laboratorio clínico y de conocimientos populares.
+        Contiene sólo ingredientes NATURALES y es completamente SEGURO para todas las edades.</p>
+    {%endblock%}
+
+    {%block mini-land%}
+    <h2>Miguel Suarez cuenta con más de 11000 cirugías de cerebro abierto. Su paciente más joven tenía solo 2 días.</h2>
+    <p>El señor Suarez es capaz de explicar procesos médicos complejos con palabras simples. Ha escrito 47 libros de no
+        ficción y libros de texto para personas sin educación médica.</p>
+    <p>Él está absolutamente convencido de que nuestros vasos crean el 90% de la salud de nuestro cuerpo y de que de su
+        pureza depende nuestro bienestar.</p>
+    <p>"""La hipertensión es una de las enfermedades más comunes entre personas mayores de 35 años. Esta enfermedad es
+        una de las más difíciles de curar. </p>
+    <p>Aunque existen remedios contra la hipertensión, estos solo eliminan los síntomas, pero no curan. Por lo tanto,
+        los pacientes tienen que pagar y tomar estos remedios toda su vida.</p>
+
+    <p>Sin embargo, hay productos que pueden curar la hipertensión si se toman adecuadamente. Según mi experiencia, el
+        producto más eficiente es Cardiox, que recomiendo a mis pacientes. Después tres cursos de 20 días al año, 8 de
+        10 pacientes normalizaron la tensión y mejoraron significativamente su estado de salud."</p>
+    <p>Aunque recomiendo Cardiox como un producto eficaz para la terapia y la estabilización de la hipertensión, también
+        recomiendo que durante el curso de terapia no cambie la dosis y controle su presión 3 veces al día.</p>
+    <div class="comment-wrapper">
+        {%comment_block%}
+        <div class="comment">
+            <img src="{%static 'product/images/comments/no_avatar.jpg'%}">
+            <div>
+            <p class="user-name">Mónica Ordóñez</p>
+            <p>Gracias por la información! Quiero intentarlo, la presión no me deja vivir...</p>
+            </div>
+        </div>
+        <div class="comment">
+            <img src="{%static 'product/images/comments/no_avatar.jpg'%}">
+            <div>
+            <p class="user-name">María</p>
+            <p>Soy una mujer sencilla y me alegro mucho de que los creadores del medicamento no persigan el beneficio a toda costa y lo vendan tan barato. Otros medicamentos son muy caros y no siempre los cubre el seguro. Gracias.</p>
+            </div>
+        </div>
+        <div class="comment">
+            <img src="{%static 'product/images/comments/no_avatar.jpg'%}">
+            <div>
+            <p class="user-name">Olivia</p>
+            <p>Por primera vez oí sobre el preparado hace tres meses y lo pedí en seguida. Tenía problemas terribles con la presión. Y después del primer día del uso la presión no ha subido ni una vez más ya. Simplemente estoy disfrutando de la vida.</p>
+            </div>
+        </div>
+        
+          </div>
+    {%endblock%}

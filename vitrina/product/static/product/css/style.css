@@ -45,7 +45,7 @@ body {
 .upp{
   text-transform: uppercase;
 }
-.description__text p{
+.description__text{
   line-height: 23px;
 }
 .container {
