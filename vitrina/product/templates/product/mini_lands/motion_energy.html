@@ -1,0 +1,83 @@
+
+{%extends 'product/product_detail.html'%}
+{%load static%}
+{%load comment_block%}
+
+{%block product_desc%}
+<!-- Блоки с миниописанием -->
+<div class="mini-land">
+  <ul>
+    <li>Alivia el síndrome del dolor</li>
+    <li>Un producto eficaz para la osteocondrosis, la artrosis y las lesiones articulares</li>
+    <li>Restaura la salud de las articulaciones</li>
+  </ul>
+</div>
+<!-- Блоки с миниописанием -->
+{%endblock%}
+{%block product_description%}
+ <h2 class="description__title">Description</h2>
+    <h3 class="description__subtitle">Motion Energy es un producto natural que puede eliminar rápidamente el dolor por artrosis y osteocondrosis.
+    Elimina el espasmo muscular y la inflamación.</h3>
+    <p class="description__text">Motion Energy también es eficaz en el tratamiento de la osteocondrosis y artrosis porque desacelera el proceso de degeneración del tejido cartilaginoso y mejora su metabolismo, promoviendo la regeneración del cartílago articular.
+    El efecto positivo puede verse después de la primera aplicación.</p>
+    <p class="description__text">Si se usa regularmente, las enfermedades de articulaciones y columna detienen su avance.</p>
+    <!-- <p><b class="upp">xxxxx</b> - xxxxxx</p> -->
+    <p><b class="upp">COMPOSICIÓN 100% NATURAL</b> - sólo componentes activos de plantas herbales</p>
+    <p><b class="upp">PROBADO POR EXPERTOS</b> - el producto está certificado y satisface los requisitos de estándares</p>
+    <p><b class="upp">UNA AMPLIA VARIEDAD DE ACCIONES</b> - curan las enfermedades de articulaciones, columna y relacionadas con la edad</p>
+
+{%endblock%}
+
+{%block mini-land%}
+<h1>pROKIL</h1>
+<h3>El Dr. Robert Nowak es el jefe del mundialmente famoso Centro de Reumatología y Neurología de Berlín.</h3>
+<p>Es un producto muy bueno para la artrosis y la osteocondrosis. Se lo recomendamos a nuestros pacientes que sufren dolor en la columna vertebral y las articulaciones. Motion Energy alivia el dolor y reduce la hinchazón en poco tiempo. Además, regenera las articulaciones y los ligamentos, lo que permite reanudar un estilo de vida activo. El bálsamo también es eficaz en caso de cambios relacionados con la edad. ¡Si se usa regularmente, ayudará a olvidarse de los problemas de salud de una vez por todas!</p>
+
+<p>Todos los componentes son de origen puramente natural. En el mundo moderno, las enfermedades articulares ocurren en el 78% de las personas mayores de 57 años (33 % en personas mayores de 26 años). Lo más peligroso de estas enfermedades es que con el tiempo solo empeoran: si no se soluciona el problema con la articulación enferma, el cartílago se destruirá más y, por lo tanto, el dolor y la incomodidad solo aumentarán. La artritis avanzada o la osteoartritis provocan dolor, malestar, limitación de la movilidad en la articulación y también interfiere con el ejercicio completo."</p>
+<p>"Gracias a su fórmula única, Motion Energy puede hacer frente a cualquier enfermedad articular:</p>
+
+<ul>
+    <li>artritis</li>
+    <li>artrosis</li>
+    <li>coxartrosis</li>
+    <li>osteoartrosis</li>
+    <li>osteocondrosis</li>
+    <li>osteocondritis</li>
+    <li>osteoporosis</li>
+    <li>lesiones de menisco</li>
+    <li>gonartrosis</li>
+</ul>
+
+<p>Modo de empleo:
+    Aplicar 1-3 veces al día a las partes afectadas del cuerpo. Masajear con movimientos ligeros hasta su total absorción.</p>
+
+
+<h3> Más de 80 comentarios</h3>
+
+<div class="comment-wrapper">
+  {%comment_block%}
+  <div class="comment">
+    <img src="{%static 'product/images/comments/no_avatar.jpg'%}">
+    <div>
+      <p class="user-name">Javiera Godoy</p>
+    <p>Mi esposo tiene osteoartritis. Ibamos de un médico a otro. Pero ya tenemos esperanza: pedimos el producto hace una semana, el esposo está muy satisfecho. Se ve que hay mejoras: comenzó a ayudarme en la casa, ya puede llevar paquetes pesados. Qué bueno que la ciencia moderna cura a las personas.</p>
+    </div>
+  </div>
+  <div class="comment">
+    <img src="{%static 'product/images/comments/no_avatar.jpg'%}">
+    <div>
+      <p class="user-name">Sergio</p>
+    <p>Tomé Motion Energy durante unos seis meses (mi amigo lo trajo de Europa). Me deshice de la osteoartritis en dos semanas y media. Ahora siempre tengo estas cápsulas en mi casa.
+    </p>
+    </div>
+  </div>
+  <div class="comment">
+    <img src="{%static 'product/images/comments/no_avatar.jpg'%}">
+    <div>
+      <p class="user-name">Almudena Herrero</p>
+    <p>Gracias!! Ya pedí el producto!</p>
+    </div>
+  </div>
+</div>
+
+{%endblock%}
