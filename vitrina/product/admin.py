@@ -8,6 +8,11 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ['slug', 'name', 'desc']
     list_display_links = list_display
 
+class OfferAdmin(admin.ModelAdmin):
+    list_display = ['id','public', 'name', 'category', 'old_price', 'price', 'doctor_rank',
+                    'price', 'low_price', 'mini_land', ]
+    list_display_links = list_display
+
 class LeadAdmin(admin.ModelAdmin):
     list_display = ['id','datetime', 'name', 'phone', 'offer', 'ip']
     list_display_links = ['id', 'name', 'phone']
@@ -26,7 +31,7 @@ class KmaOfferAdmin(admin.ModelAdmin):
 
 
 
-admin.site.register(Offer)
+admin.site.register(Offer, OfferAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(AdcomboOffer, AdcomboOfferAdmin)
 admin.site.register(LeadRockOffer, LeadRockOfferAdmin)

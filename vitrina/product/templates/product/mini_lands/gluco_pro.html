@@ -1,0 +1,83 @@
+{%extends 'product/product_detail.html'%}
+{%load comment_block%}
+{%load static%}
+
+
+{%block product_desc%}
+<ul class="red">
+    <li>Reduce el nivel de azúcar</li>
+    <li>Elimina el estrés y ansiedad</li>
+    <li>Regula el funcionamien to del
+        páncreas</li>
+    <li>Estimula la producción de insulina</li>
+</ul>
+{%endblock%}
+
+{%block product_description%}
+<div class="mini-land">
+    <ul>
+        <li>SIN EFECTO DE DROGADICCIÓN</li>
+        <li>SIN EFECTOS SECUNDARIOS</li>
+        <li>SIN CONTRAINDICACIONES</li>
+        <li>APROBADO POR DOCTORES</li>
+    </ul>
+</div>
+<h4>REDUCE EL NIVEL DE AZÚCAR EN
+    LA SANGRE</h4>
+<p>Y también el impulso por las cosas
+    dulces y apetito</p>
+<h4>REGULA EL FUNCIONAMIENTO DEL
+    PÁNCREAS</h4>
+<p>Tu organismo se restablecerá</p>
+<h4>ASISTENCIA ANTIOXIDANTE</h4>
+<p>Reduce el daño de los radicales
+    libres y mejora el sistema inmune.</p>
+{%endblock%}
+
+{%block mini-land%}
+<h3>Julián Cobo, Doctor en Endocrinología</h3>
+<p>"'Los productos para la diabetes disponibles solo eliminan los síntomas, pero no su causa. Gluco Pro proporciona un efecto excelente y sostenible para el control de la diabetes. Después de un ciclo de tratamiento, la diabetes ES REGULADA gradualmente, se restauran todas las funciones corporales y los trastornos metabólicos se resuelven por completo.
+
+    El efecto positivo de Gluco Pro se ha confirmado durante los ensayos clínicos. Se ha demostrado que Gluco Pro es seguro para la salud y no tiene efectos secundarios ni contraindicaciones.
+    
+    Recientemente, presenté Gluco Pro a la mayoría de mis pacientes y obtuve muy buenas opiniones en cuanto a su eficacia"".
+    "</p>
+
+<p><b>Las cápsulas contienen ingredientes, cada uno de los cuales ayuda a deshacerse de la diabetes:</b></p>
+<ul>
+    <li>Normalizar la función hepática y renal</li>
+    <li>Normaliza el nivel de azúcar y reduce el colesterol.</li>
+    <li>Disminuye la presión arterial, mejora la visión.</li>
+    <li>Tienen propiedades tónicas, antisépticas y antiinflamatorias.</li>
+    <li>Un remedio tradicional para la diabetes.</li>
+</ul>
+<p>"Como doctor, yo le recomiendo Gluco Pro a mis pacientes como una alternativa a los medicamentos sintéticos contra la diabetes. Además de la reducción en el nivel de azúcar en la sangre, el medicamento ayuda a combatir el estrés y la ansiedad.
+    "</p>
+<h3> Más de 80 comentarios</h3>
+
+<div class="comment-wrapper">
+  {%comment_block%}
+  <div class="comment">
+    <img src="{%static 'product/images/comments/no_avatar.jpg'%}">
+    <div>
+      <p class="user-name">María </p>
+    <p>¡Tiene un efecto calor y me encanta! Debido a una mala circulación sanguínea, mis manos y mis pies estaban helados todo el día. Ahora ya no me pasa</p>
+    </div>
+  </div>
+  <div class="comment">
+    <img src="{%static 'product/images/comments/no_avatar.jpg'%}">
+    <div>
+      <p class="user-name">Alba </p>
+    <p>Me siento normal de nuevo. Mis piernas se ven y se sienten mucho mejor que antes.</p>
+    </div>
+  </div>
+  <div class="comment">
+    <img src="{%static 'product/images/comments/no_avatar.jpg'%}">
+    <div>
+      <p class="user-name">Elena</p>
+    <p>¡Me encanta la sensación que tengo en las piernas ahora! Lo pasé tan mal durante tanto tiempo que ya había olvidado lo que es tener unas piernas sanas.</p>
+    </div>
+  </div>
+
+</div>
+{%endblock%}
