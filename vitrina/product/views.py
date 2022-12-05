@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import Offer, Lead, Category
 from .forms import LeadForm
 
-
+RANDOM_PRODUCT_COUNT = 3
 def index(requests):
     products = Offer.published.all().order_by('-pk')
     content = {
@@ -23,7 +23,7 @@ def category(requests, slug):
 
 
 def product_details(requests, product_id):
-    RANDOM_PRODUCT_COUNT = 3
+
     if requests.method == 'POST':
         lead_form = LeadForm(requests.POST)
         if lead_form.is_valid:
@@ -54,9 +54,11 @@ def leads(requests):
 
 
 def success(requests, lead_id):
+    random_products = Offer.objects.order_by('?')
     lead = Lead.objects.get(pk=lead_id)
     content = {
         'lead': lead,
+        'products': random_products[:RANDOM_PRODUCT_COUNT],
     }
     return render(requests, 'product/success.html', content)
 

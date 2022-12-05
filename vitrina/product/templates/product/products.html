@@ -22,7 +22,7 @@
 
 
 <section class="information">
-  <div class="container">
+  <div class="container-sm">
     <div class="information__inner">
       <h2 class="information__title subtitle">Principales Categorias</h2>
       <div class="information__line line"></div>
@@ -72,7 +72,7 @@
                 {%else%}
                 Mejores productos naturales
                 {%endif%}</p>
-              <h4 class="catalog__card-title">{{product.name}}</h4>
+              <h4 class="catalog__card-title"><a href="{%url 'product:product_detail' product.id %}">{{product.name}}</a></h4>
               <div class="catalog__card-coast">
                 {%if product.low_price%}
                 <div class="card__old-coast">

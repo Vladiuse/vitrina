@@ -1,4 +1,5 @@
 {%extends 'product/base.html' %}
+{%load static%}
 {%block content%}
 
 <div id="wrapper">
@@ -18,17 +19,99 @@
           <p>Nombre: <span class="userName">{{lead.name}}</span></p>
           <p>Teléfono: <span class="userPhone">{{lead.phone}}</span></p>
 
-          <p class="error"><span style="color: red;">*</span>si cometes un error<br> - envíe su solicitud de nuevo.</p>
+          <!-- <p class="error"><span style="color: red;">*</span>si cometes un error<br> - envíe su solicitud de nuevo.</p>
           <button onclick="showForm()" class="edit" id="fix">Corregir</button>
           <form id="again-form" class="reForm" action="../order.php" method="POST">
             <input class="reName" name="name" placeholder="Tu nombre:" maxlength="30" value="{{lead.name}}"><br>
             <input class="rePhone" name="phone" placeholder="Su número de teléfono:" minlength="8" maxlength="30" value="{{lead.phone}}"><br>
             <button type="submit" class="edit send">Enviar</button>
-          </form>
+          </form> -->
         </div>
       </div>
     </div>
   </div>
+
+  <section class="first-product catalog">
+    <div class="container">
+      <div class="first-product__inner catalog__inner">
+        <h2 class="catalog__title subtitle">
+          See our other products	
+        </h2>
+        <div class="catalog__line line"></div>
+        <ul class="catalog__box">
+          {%for product in products%}
+          <li class="catalog__card">
+            <div class="catalog__card-img">
+              <a class="link-img__card" href="{%url 'product:product_detail' product.id %}"></a>
+              <!-- <div class="oferta">oferta</div> -->
+              <img src="{{product.image.url}}" alt="Product">
+              <a class="viewing" href="#"> Vista rápida</a>
+            </div>
+            <p class="catalog__card-text">
+              {%if product.desc%}
+                {{product.desc}}
+                {%else%}
+                Mejores productos naturales
+                {%endif%}
+            </p>
+            <h4 class="catalog__card-title">{{product.name}}</h4>
+            <div class="catalog__card-coast">
+              {%if product.old_price%}
+              <div class="card__old-coast">
+                <!-- <span class="currency">$</span> -->
+                <span class="price">{{product.old_price}}</span> 
+              </div>
+              {%endif%}
+              <!-- <span class="currency">$</span> -->
+              <span class="price">{{product.price}}</span> 
+            </div>
+            <button type="button" class="catalog__card-btn">
+              <a href="{%url 'product:product_detail' product.id %}">Pedir</a>
+            </button>
+          </li>
+          {%endfor%}
+          <!-- <li class="catalog__card">
+            <div class="catalog__card-img">
+              <a class="link-img__card" href="#"></a>
+              <div class="oferta">oferta</div>
+              <img src="{%static 'product/images/bank.png'%}" alt="Product">
+              <a class="viewing" href="#"> Vista rápida</a>
+            </div>
+            <p class="catalog__card-text">Mejores  productos naturales</p>
+            <h4 class="catalog__card-title">Revitale, producto para las Hemorriodes</h4>
+            <div class="catalog__card-coast">
+              <div class="card__old-coast">
+                <span class="currency">$</span>
+                <span class="price">69.90</span> 
+              </div>
+              <span class="currency">$</span>
+              <span class="price">69.90</span> 
+            </div>
+            <button type="button" class="catalog__card-btn">Pedir</button>
+          </li> -->
+          <!-- <li class="catalog__card">
+            <div class="catalog__card-img">
+              <a class="link-img__card" href="#"></a>
+              <div class="oferta">oferta</div>
+              <img src="{%static 'product/images/bank.png'%}" alt="Product">
+              <a class="viewing" href="#"> Vista rápida</a>
+            </div>
+            <p class="catalog__card-text">Mejores  productos naturales</p>
+            <h4 class="catalog__card-title">Revitale, producto para las Hemorriodes</h4>
+            <div class="catalog__card-coast">
+              <div class="card__old-coast" >
+                <span class="currency">$</span>
+                <span class="price">69.90</span> 
+              </div>
+              <span class="currency">$</span>
+              <span class="price">69.90</span> 
+            </div>
+            <button type="button" class="catalog__card-btn">Pedir</button>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </section>
   <script>
     function showForm() {
       var fixBtn = document.getElementById("fix");
@@ -44,7 +127,7 @@
   /* margin: 0;
   color: #fff;
   font: 17px/25px Georgia, 'Times New Roman', Times, serif; */
-  background: #1f242a;
+  /* background: #1f242a; */
   /* min-width: 446px; */
 }
 img {
@@ -86,7 +169,7 @@ q:after {
   padding: 50px 0;
 }
 .container-success {
-  width: 440px;
+  max-width: 440px;
   margin: 0 auto;
   display: block;
   position: relative;
@@ -94,7 +177,7 @@ q:after {
 
 .order-block {
   /*     width: 440px; */
-  border: 4px dashed #fcca49;
+  border: 4px dashed #25b244;
   border-radius: 30px;
   height: auto;
   margin: 0 auto;
@@ -103,7 +186,7 @@ q:after {
   font-size: 20px;
   line-height: 30px;
   overflow: hidden;
-  color: #d5e5eb;
+  color: #555;
   /*     margin-right: 6px; */
 }
 .order-block:after {
@@ -125,20 +208,20 @@ q:after {
 .order-block h2 {
   font: 35px/35px 'Lobster', Arial, Helvetica, sans-serif;
   margin: 0 0 59px;
-  color: #fff;
+  color: #25b244;
 }
 .order-block h2 span {
   display: block;
   font-size: 45px;
   line-height: 45px;
-  color: #fcca49;
+  color: #25b244;
   margin: 0 0 -2px;
 }
 .data h2 span {
   display: block;
   font-size: 25px;
   line-height: 25px;
-  color: #fcca49;
+  color: #25b244;
   margin: 0 0 -2px;
 }
 .data h2 {
@@ -153,7 +236,7 @@ q:after {
 .edit {
   border: 0px solid black;
   color: black;
-  background-color: #fcca49;
+  background-color: #25b244;
   margin-bottom: 5px;
   font: 14px/14px 'Lobster', Arial, Helvetica, sans-serif;
   padding: 3px;
@@ -180,7 +263,7 @@ form input {
   left: 3px;
   width: 100%;
   box-sizing: border-box;
-  background: #fcca49;
+  background: #25b244;
   padding: 20px;
 }
 .order-block .text-box h2 {
