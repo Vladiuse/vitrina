@@ -68,7 +68,7 @@
               </div>
               <p class="catalog__card-text">
                 {%if product.desc%}
-                {{product.desc}}
+                {{product.desc|slice:":80"}}...
                 {%else%}
                 Mejores productos naturales
                 {%endif%}</p>
@@ -84,11 +84,11 @@
                 <span class="price">{{product.price}}</span> 
               </div>
               <!-- <a href="{%url 'product:product_detail' product.id %}">
-                <button type="button" class="catalog__card-btn">Añadir al carrito</button>
+                <button type="button" class="catalog__card-btn">Pedir</button>
               </a> -->
               <button type="button" class="catalog__card-btn">
                 <a href="{%url 'product:product_detail' product.id %}">
-                  Añadir al carrito
+                  Pedir
                 </a>
               </button>
             </li>
@@ -124,7 +124,7 @@
                 <span class="currency">$</span>
                 <span class="price">283.20</span> 
               </div>
-              <button type="button" class="catalog__card-btn">Añadir al carrito</button>
+              <button type="button" class="catalog__card-btn">Pedir</button>
             </li>
             <li class="catalog__card">
               <div class="catalog__card-img">
@@ -143,7 +143,7 @@
                 <span class="currency">$</span>
                 <span class="price">283.20</span> 
               </div>
-              <button type="button" class="catalog__card-btn">Añadir al carrito</button>
+              <button type="button" class="catalog__card-btn">Pedir</button>
             </li>
             <li class="catalog__card">
               <div class="catalog__card-img">
@@ -162,7 +162,7 @@
                 <span class="currency">$</span>
                 <span class="price">283.20</span> 
               </div>
-              <button type="button" class="catalog__card-btn">Añadir al carrito</button>
+              <button type="button" class="catalog__card-btn">Pedir</button>
             </li>
             <li class="catalog__card">
               <div class="catalog__card-img">
@@ -181,7 +181,7 @@
                 <span class="currency">$</span>
                 <span class="price">283.20</span> 
               </div>
-              <button type="button" class="catalog__card-btn">Añadir al carrito</button>
+              <button type="button" class="catalog__card-btn">Pedir</button>
             </li>
           </ul>
         </div>

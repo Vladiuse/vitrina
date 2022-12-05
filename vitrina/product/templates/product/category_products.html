@@ -3,9 +3,25 @@
 <!-- <div class="container mini-land">
     <div></div>
 </div> -->
-<div class="container mini-land">
-    {{category.get_mini_land|safe}}
+<div class="container">
+    <div class="mini-land">
+        {{category.get_mini_land|safe}}
+    </div>
 </div>
+<style>
+    .container{
+        display: flex;
+        justify-content: center;
+    }
+    .mini-land{
+        background-color: #efefef;
+        border: 2px solid #747474;
+        padding: 20px 40px;
+    }
+    .mini-land h4{
+        text-align: right;
+    }
+</style>
 {%endblock%}
 
 {%block bottom-mini-land%}

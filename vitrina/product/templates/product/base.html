@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{%block title%}MAIN{%endblock%}</title>
-  <link rel="stylesheet" href="{%static 'product/css/normalize.css'%}?v=1">
-  <link rel="stylesheet" href="{%static 'product/css/style.css'%}?v=1">
+  <link rel="stylesheet" href="{%static 'product/css/normalize.css'%}?v=2">
+  <link rel="stylesheet" href="{%static 'product/css/style.css'%}?v=2">
       <!--ICONS-->
       <script src="https://kit.fontawesome.com/da43c2ea11.js" crossorigin="anonymous"></script>
     <!-- JQUERY -->
@@ -16,6 +16,10 @@
     body{
       color: #555;
     }
+    .logo__link img {
+  width: 160px;
+  /* height: 40px; */
+}
     .booking__column-categoria h5{
       color: black;
     }
@@ -146,6 +150,10 @@
       .mini-land .comm-form-wrapp{
         margin-bottom: 30px;
       }
+      .comm-form-wrapp a{
+        display: inline;
+        color: #0b7cac;
+      }
       
       .mini-land .comm-form-wrapp textarea{
         padding: 5px;
@@ -198,6 +206,8 @@
         height: 35px;
         text-align: center;
         opacity: 0.65;
+        text-transform: uppercase;
+        margin-top: 10px;
       }
       .mini-land .comm-form-wrapp button.active{
         opacity: 1;
@@ -239,7 +249,7 @@
       <div class="header__inner">
         <div class="logo">
           <a class="logo__link" href="{%url 'product:products'%}">
-            <img src="{%static 'product/images/logo_main.png'%}" alt="logo">
+            <img src="{%static 'product/images/logo_2.jpg'%}" alt="logo">
           </a>
         </div>
         <nav class="menu">

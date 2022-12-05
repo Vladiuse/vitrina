@@ -69,6 +69,7 @@ body {
   max-width: 300px;
   width: 47%;
   margin-bottom: 20px;
+  justify-content: space-between;
 }
 .catalog__card-img {
   position: relative;
@@ -387,10 +388,9 @@ body {
   height: 20px;
   width: 20px;
 }
-
 .logo__link img {
-  width: 40px;
-  height: 40px;
+  width: 160px;
+  /* height: 40px; */
 }
 
 .menu {

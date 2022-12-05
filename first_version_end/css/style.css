@@ -274,8 +274,8 @@ body {
 }
 
 .logo__link img {
-  width: 40px;
-  height: 40px;
+  width: 160px;
+  /* height: 40px; */
 }
 
 .menu {
