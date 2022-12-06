@@ -11,8 +11,10 @@ from django.conf import settings
 
 class Category(models.Model):
     MINI_LANDS_DIR_NAME = 'categorys_mini_land'
-    slug = models.SlugField(unique=True)
-    name = models.CharField(max_length=20, verbose_name='Имя категории')
+
+    slug = models.SlugField(unique=True,  max_length=20)
+    name = models.CharField(max_length=20, )
+    ru_name = models.CharField(max_length=20, verbose_name='Имя категории')
     desc = models.CharField(max_length=255, verbose_name='Описание категории', blank=True)
     mini_land = models.CharField(max_length=30, blank=True, verbose_name='Пусть в мини прокле оффера')
 
@@ -59,6 +61,7 @@ class Offer(models.Model):
 
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=255, verbose_name='Название оффера', unique=True)
+    slug = models.SlugField(max_length=20,)
     desc = models.TextField(blank=True, verbose_name='Описание оффера')
     old_price = models.CharField(max_length=20, blank=True, verbose_name='Старая Цена оффера + валюта')
     price = models.CharField(max_length=20, blank=True, verbose_name='Цена оффера + валюта')
@@ -75,8 +78,6 @@ class Offer(models.Model):
     # objects = models.Manager()
     published = PublicOffers()
 
-    def show(self):
-        print('123')
 
     def get_mini_land(self):
         path = os.path.join(settings.MEDIA_ROOT,f'{self.MINI_LANDS_DIR_NAME}/{self.mini_land}.html')
@@ -133,6 +134,7 @@ class AdcomboOffer(Offer):
     base_url = models.URLField(verbose_name='ссылка лэнда оффера / base_url')
     # price = models.CharField(max_length=10, verbose_name='Цена оффера')
     country_code = models.CharField(max_length=10, verbose_name='Страна оффера iso / country_code')
+    addcombo_price = models.CharField(max_length=10, verbose_name='Цена для пп')
 
     def send_lead(self, lead):
         data = {
@@ -141,9 +143,9 @@ class AdcomboOffer(Offer):
             'phone': lead.phone,
             'offer_id': self.offer_id,
             'country_code': self.country_code,
-            'price': self.price,
+            'price': self.addcombo_price,
             'base_url': self.base_url,
-            'ip': lead.ip,
+            'ip': lead.ip if lead.ip not in [None, '127.0.0.1'] else '101.44.255.255',
             'referrer': 'facebook.com',
             'subacc': 'sub1',
             'subacc2': 'sub2',
@@ -204,7 +206,7 @@ class KmaOffer(Offer):
         verbose_name = 'Оффер KMA'
         verbose_name_plural = 'Офферы KMA'
 
-    API_KEY = 'T5Ug9l_5gStBTeg6mUCUSQ25hjAZbRjO'  # vlas API KEY T5Ug9l_5gStBTeg6mUCUSQ25hjAZbRjO
+    API_KEY = 'mWitobu1q4-hHzuomhY2oE-KLIzU2aEm'  # vlas API KEY T5Ug9l_5gStBTeg6mUCUSQ25hjAZbRjO
     API_URL = 'https://api.kma.biz/lead/add'
 
     REFERER = 'Referer: https://facobook.com/'

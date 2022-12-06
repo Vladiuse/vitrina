@@ -5,13 +5,15 @@ from .models import Offer, Lead, AdcomboOffer, LeadRockOffer, KmaOffer, Category
 # Register your models here.
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['slug', 'name', 'desc']
+    list_display = [ 'name','ru_name', 'desc','slug',]
     list_display_links = list_display
+    prepopulated_fields = {"slug": ("name",)}
 
 class OfferAdmin(admin.ModelAdmin):
-    list_display = ['id','public', 'name', 'category', 'old_price', 'price', 'doctor_rank',
+    list_display = ['id','public', 'name', 'slug','category', 'old_price', 'price', 'doctor_rank',
                     'price', 'low_price', 'mini_land', ]
     list_display_links = list_display
+    prepopulated_fields = {"slug": ("name",)}
 
 class LeadAdmin(admin.ModelAdmin):
     list_display = ['id','datetime', 'name', 'phone', 'offer', 'ip']

@@ -4,6 +4,13 @@ from .models import Offer, Lead, Category
 from .forms import LeadForm
 
 RANDOM_PRODUCT_COUNT = 3
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
 def index(requests):
     products = Offer.published.all().order_by('-pk')
     content = {
@@ -11,8 +18,8 @@ def index(requests):
     }
     return render(requests, 'product/products.html', content)
 
-def category(requests, slug):
-    category = Category.objects.get(slug=slug)
+def category(requests, cat_slug):
+    category = Category.objects.get(slug=cat_slug)
     products = Offer.objects.filter(category=category)
     content = {
         'products': products,
@@ -22,23 +29,24 @@ def category(requests, slug):
 
 
 
-def product_details(requests, product_id):
-
+def product_details(requests, product_slug):
     if requests.method == 'POST':
         lead_form = LeadForm(requests.POST)
         if lead_form.is_valid:
             lead = lead_form.save()
+            print(lead, 'xxxx')
             lead.send()
             return HttpResponseRedirect(reverse('product:success', kwargs={'lead_id': lead.id}))
         else:
             return HttpResponse('Error form')
     else:
-        product = Offer.objects.get(pk=product_id)
-        random_products = Offer.objects.exclude(pk=product_id).order_by('?')
+        product = Offer.objects.get(slug=product_slug)
+        random_products = Offer.objects.exclude(pk=product.pk).order_by('?')
 
         content = {
             'product': product,
             'products': random_products[:RANDOM_PRODUCT_COUNT],
+            'client_ip': get_client_ip(requests)
         }
         if not product.mini_land:
             product.mini_land = 'default'

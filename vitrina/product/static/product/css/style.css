@@ -79,6 +79,10 @@ body {
   margin-bottom: 20px;
   justify-content: space-between;
 }
+.catalog__card a{
+  display: flex;
+  justify-content: center;
+}
 .catalog__card-img {
   position: relative;
   max-height: 220px;
@@ -163,7 +167,7 @@ body {
   display: inline-block;
   padding: 0 5px;
   margin-top: 0;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: bold;
   overflow-y: hidden;
   text-align: center;

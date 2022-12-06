@@ -150,17 +150,19 @@
             </div>
           </div>
         </div>
-
-        <form class="form__contact">
+        <form class="form__contact" method="POST">
+          <input type="hidden" name="offer" value="{{product.pk}}">
+          <input type="hidden" name="ip" value="{{client_ip}}">
+          {%csrf_token%}
           <h3 class="form__contact-title">Ordenar {{product.name|title}}</h3>
           <label for="name">Nombre
             <span>*</span>
           </label>
-          <input type="text" name="name" class="form__contact-input" placeholder="Su nombre">
+          <input type="text" name="name" class="form__contact-input" minlength="3" maxlength="30" placeholder="Escribe tu nombre" >
           <label for="name">Teléfono
             <span>*</span>
           </label>
-          <input type="tel" name="phone" class="form__contact-input" placeholder="Su teléfono">
+          <input type="tel" name="phone" class="form__contact-input" placeholder="Tu número de teléfono" minlength="8" maxlength="14">
           <!-- <textarea class="form__contact-area" type="submit"></textarea> -->
           <p>
             <input type="checkbox" id="check1" checked>
@@ -214,44 +216,6 @@
             </button>
           </li>
           {%endfor%}
-          <!-- <li class="catalog__card">
-            <div class="catalog__card-img">
-              <a class="link-img__card" href="#"></a>
-              <div class="oferta">oferta</div>
-              <img src="{%static 'product/images/bank.png'%}" alt="Product">
-              <a class="viewing" href="#"> Vista rápida</a>
-            </div>
-            <p class="catalog__card-text">Mejores  productos naturales</p>
-            <h4 class="catalog__card-title">Revitale, producto para las Hemorriodes</h4>
-            <div class="catalog__card-coast">
-              <div class="card__old-coast">
-                <span class="currency">$</span>
-                <span class="price">69.90</span> 
-              </div>
-              <span class="currency">$</span>
-              <span class="price">69.90</span> 
-            </div>
-            <button type="button" class="catalog__card-btn">Pedir</button>
-          </li> -->
-          <!-- <li class="catalog__card">
-            <div class="catalog__card-img">
-              <a class="link-img__card" href="#"></a>
-              <div class="oferta">oferta</div>
-              <img src="{%static 'product/images/bank.png'%}" alt="Product">
-              <a class="viewing" href="#"> Vista rápida</a>
-            </div>
-            <p class="catalog__card-text">Mejores  productos naturales</p>
-            <h4 class="catalog__card-title">Revitale, producto para las Hemorriodes</h4>
-            <div class="catalog__card-coast">
-              <div class="card__old-coast" >
-                <span class="currency">$</span>
-                <span class="price">69.90</span> 
-              </div>
-              <span class="currency">$</span>
-              <span class="price">69.90</span> 
-            </div>
-            <button type="button" class="catalog__card-btn">Pedir</button>
-          </li> -->
         </ul>
       </div>
     </div>
