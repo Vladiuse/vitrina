@@ -1,6 +1,9 @@
 
 {%extends 'product/base.html'%}
 {%load static%}
+{%block title%}
+{{product.name|title}}
+{%endblock%}
 {%block green-title%}
 {%endblock%}
 
@@ -149,19 +152,19 @@
         </div>
 
         <form class="form__contact">
-          <h3 class="form__contact-title">Make Order</h3>
-          <label for="name">Name
+          <h3 class="form__contact-title">Ordenar {{product.name|title}}</h3>
+          <label for="name">Nombre
             <span>*</span>
           </label>
-          <input type="text" name="name" class="form__contact-input" placeholder="Your name">
-          <label for="name">Name
+          <input type="text" name="name" class="form__contact-input" placeholder="Su nombre">
+          <label for="name">Teléfono
             <span>*</span>
           </label>
-          <input type="tel" name="phone" class="form__contact-input" placeholder="Your phone">
+          <input type="tel" name="phone" class="form__contact-input" placeholder="Su teléfono">
           <!-- <textarea class="form__contact-area" type="submit"></textarea> -->
           <p>
             <input type="checkbox" id="check1" checked>
-            <label for="check1">Agree with data processing rules</label>
+            <label for="check1">De acuerdo con las reglas de procesamiento de datos</label>
           </p>
           <button type="submit" class="form__contact-btn catalog__card-btn">Pedir</button>
         </form>
@@ -255,7 +258,6 @@
   </section>
 
 </main>
-
 
 <script>
   $('#scroll-order').click(function(){

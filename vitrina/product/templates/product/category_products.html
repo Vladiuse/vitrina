@@ -1,5 +1,9 @@
 {%extends 'product/products.html'%}
+{%block title%}
+{{category.slug|title}}
+{%endblock%}
 {%block header-mini-land%}
+
 <!-- <div class="container mini-land">
     <div></div>
 </div> -->
@@ -14,6 +18,7 @@
         justify-content: center;
     }
     .mini-land{
+        font-style: italic;
         background-color: #efefef;
         border: 2px solid #747474;
         padding: 20px 40px;
