@@ -40,14 +40,14 @@
             <img src="{{product.image.url}}" alt="image">
           </div> 
           <div class="booking__column">
-            <div class="booking__arrows">
+            <!-- <div class="booking__arrows">
               <a class="booking__arrows-prew" href="{%url 'product:prev_next_product' 'prev' product.id %}">
                 <span>Prew Product</span>
               </a>
               <a class="booking__arrows-next" href="{%url 'product:prev_next_product' 'next' product.id %}">
                 <span>Next Product</span>
               </a>
-            </div>
+            </div> -->
             <h2 class="booking__column-title" >{{product.name}}</h2>
             <div class=" booking__column-coast catalog__card-coast" style="align-items: center;">
               {%if product.low_price%}
@@ -150,8 +150,8 @@
             </div>
           </div>
         </div>
-        <form class="form__contact" method="POST">
-          <input type="hidden" name="offer" value="{{product.pk}}">
+        <form class="form__contact" method="POST" >
+          <input type="hidden" name="offer" value="./orders/{{product.pk}}">
           <input type="hidden" name="ip" value="{{client_ip}}">
           {%csrf_token%}
           <h3 class="form__contact-title">Ordenar {{product.name|title}}</h3>
