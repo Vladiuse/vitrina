@@ -188,10 +188,13 @@
           {%for product in products%}
           <li class="catalog__card">
             <div class="catalog__card-img">
-              <a class="link-img__card" href="{%url 'product:product_detail' product.id %}"></a>
+              <a class="link-img__card" href="{%url 'product:product_detail' product.slug %}"></a>
               <!-- <div class="oferta">oferta</div> -->
               <img src="{{product.image.url}}" alt="Product">
-              <a class="viewing" href="#"> Vista rápida</a>
+              <div class="viewing">
+                <i class="fa-solid fa-eye"></i>
+                <a class="" href="{%url 'product:product_detail' product.slug %}"> Vista rápida</a>
+              </div>
             </div>
             <p class="catalog__card-text">
               {%if product.desc%}
@@ -212,7 +215,7 @@
               <span class="price">{{product.price}}</span> 
             </div>
             <button type="button" class="catalog__card-btn">
-              <a href="{%url 'product:product_detail' product.id %}">Pedir</a>
+              <a href="{%url 'product:product_detail' product.slug %}">Pedir</a>
             </button>
           </li>
           {%endfor%}

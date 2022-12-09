@@ -104,7 +104,7 @@ class Offer(models.Model):
                     model = offers[pos + 1]
                 except IndexError:
                     model = offers.first()
-                return model.pk
+                return model.slug
 
     @staticmethod
     def get_prev(current_offer_id):
@@ -115,7 +115,7 @@ class Offer(models.Model):
                     model = offers[pos - 1]
                 except AssertionError:
                     model = offers.last()
-                return model.pk
+                return model.slug
 
     def send(self, lead):
         offer = Offer.objects.get_subclass(pk=self.pk)

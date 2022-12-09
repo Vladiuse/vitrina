@@ -30,11 +30,11 @@ def category(requests, cat_slug):
 
 
 def product_details(requests, product_slug):
+    print(product_slug, 'xxxx')
     if requests.method == 'POST':
         lead_form = LeadForm(requests.POST)
         if lead_form.is_valid:
             lead = lead_form.save()
-            print(lead, 'xxxx')
             lead.send()
             return HttpResponseRedirect(reverse('product:success', kwargs={'lead_id': lead.id}))
         else:
@@ -77,7 +77,7 @@ def policy(requests):
 def prev_next_product(requests,direction, curr_id):
     curr_id = int(curr_id)
     if direction == 'prev':
-        product_id = Offer.get_prev(curr_id)
+        product_slug = Offer.get_prev(curr_id)
     else:
-        product_id = Offer.get_next(curr_id)
-    return HttpResponseRedirect(reverse('product:product_detail', kwargs={'product_id': product_id}))
+        product_slug = Offer.get_next(curr_id)
+    return HttpResponseRedirect(reverse('product:product_detail', kwargs={'product_slug': product_slug}))

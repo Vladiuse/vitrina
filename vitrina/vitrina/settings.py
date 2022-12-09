@@ -126,6 +126,18 @@ DATABASES = {
 
      }
  }
+# database vitrina OCEAN
+DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': 'vitrina',
+         'USER': 'vitrina',
+         'PASSWORD': '20302030Ab%',
+         'HOST': '164.92.108.119',
+         'PORT': '3306',
+
+     }
+ }
 
 
 # Password validation
