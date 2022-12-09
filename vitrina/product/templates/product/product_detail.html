@@ -150,8 +150,8 @@
             </div>
           </div>
         </div>
-        <form class="form__contact" method="POST" >
-          <input type="hidden" name="offer" value="./orders/{{product.pk}}">
+        <form class="form__contact" method="POST" action="./orders/{{product.php}}">
+          <input type="hidden" name="offer" value="{{product.pk}}">
           <input type="hidden" name="ip" value="{{client_ip}}">
           {%csrf_token%}
           <h3 class="form__contact-title">Ordenar {{product.name|title}}</h3>
