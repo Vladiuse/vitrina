@@ -2,6 +2,7 @@ from django.shortcuts import render, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Offer, Lead, Category
 from .forms import LeadForm
+from django.contrib.auth.decorators import login_required
 
 RANDOM_PRODUCT_COUNT = 3
 def get_client_ip(request):
@@ -12,7 +13,7 @@ def get_client_ip(request):
         ip = request.META.get('REMOTE_ADDR')
     return ip
 def index(requests):
-    products = Offer.published.all().order_by('-pk')
+    products = Offer.published.select_related('category').all().order_by('-pk')
     content = {
         'products': products,
     }
@@ -30,7 +31,6 @@ def category(requests, cat_slug):
 
 
 def product_details(requests, product_slug):
-    print(product_slug, 'xxxx')
     if requests.method == 'POST':
         lead_form = LeadForm(requests.POST)
         if lead_form.is_valid:
@@ -52,7 +52,7 @@ def product_details(requests, product_slug):
             product.mini_land = 'default'
         return render(requests, f'product/mini_lands/{product.mini_land}.html', content)
 
-
+@login_required
 def leads(requests):
     leads = Lead.objects.all().order_by('-pk')
     content = {
@@ -70,9 +70,6 @@ def success(requests, lead_id):
     }
     return render(requests, 'product/success.html', content)
 
-
-def policy(requests):
-    return render(requests, 'product/policy.html')
 
 def prev_next_product(requests,direction, curr_id):
     curr_id = int(curr_id)

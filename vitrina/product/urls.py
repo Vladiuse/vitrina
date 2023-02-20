@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.views.generic import TemplateView
 
 app_name = 'product'
 
@@ -9,7 +10,7 @@ urlpatterns = [
     path('product/<slug:product_slug>', views.product_details, name='product_detail'),
     path('leads', views.leads, name='leads'),
     path('success/<str:lead_id>', views.success, name='success'),
-    path('policy', views.policy, name='policy'),
+    path('policy',TemplateView.as_view(template_name='product/policy.html'), name='policy'),
 
     path('<slug:cat_slug>', views.category, name='category'),
 

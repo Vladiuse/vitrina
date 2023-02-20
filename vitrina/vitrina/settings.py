@@ -32,7 +32,8 @@ def get_secret(setting, secrets=secrets):
     except KeyError:
         raise ImproperlyConfigured("Set the {} setting".format(setting))
 
-
+ADDCOMBO_API = get_secret('addcombo_api_key')
+KMA_API = get_secret('kma_api_key')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -59,6 +60,7 @@ INSTALLED_APPS = [
     'product.apps.ProductConfig',
 
     'django_extensions',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -69,6 +71,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'vitrina.urls'
@@ -102,19 +106,7 @@ WSGI_APPLICATION = 'vitrina.wsgi.application'
 #     }
 # }
 
-# for MySql local server
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': get_secret('name'),
-        'USER': get_secret('user'),
-        'PASSWORD':  get_secret('password'),
-        'HOST': 'localhost',
-
-    }
-}
-
-# for MySql database remote
+# # for MySql database remote
 DATABASES = {
      'default': {
          'ENGINE': 'django.db.backends.mysql',
@@ -126,18 +118,7 @@ DATABASES = {
 
      }
  }
-# database vitrina OCEAN
-DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'vitrina',
-         'USER': 'vitrina',
-         'PASSWORD': '20302030Ab%',
-         'HOST': '164.92.108.119',
-         'PORT': '3306',
 
-     }
- }
 
 
 # Password validation
@@ -187,3 +168,8 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]

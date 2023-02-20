@@ -57,7 +57,7 @@ class Offer(models.Model):
         verbose_name = 'Оффер'
         verbose_name_plural = 'Офферы'
 
-    objects = InheritanceManager()
+
 
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=255, verbose_name='Название оффера', unique=True)
@@ -75,25 +75,25 @@ class Offer(models.Model):
     def __str__(self):
         return f'{self.pk}:{self.name}'
 
-    # objects = models.Manager()
+    objects = InheritanceManager()
     published = PublicOffers()
 
 
-    def get_mini_land(self):
-        path = os.path.join(settings.MEDIA_ROOT,f'{self.MINI_LANDS_DIR_NAME}/{self.mini_land}.html')
-        try:
-            with open(path, encoding='utf-8') as file:
-                text = file.read()
-
-            template = Template(text)
-            content = {
-                'product': self
-            }
-            context = Context(content)
-            result = template.render(context)
-            return str(result)
-        except FileNotFoundError as error:
-            return 'no find'
+    # def get_mini_land(self):
+    #     path = os.path.join(settings.MEDIA_ROOT,f'{self.MINI_LANDS_DIR_NAME}/{self.mini_land}.html')
+    #     try:
+    #         with open(path, encoding='utf-8') as file:
+    #             text = file.read()
+    #
+    #         template = Template(text)
+    #         content = {
+    #             'product': self
+    #         }
+    #         context = Context(content)
+    #         result = template.render(context)
+    #         return str(result)
+    #     except FileNotFoundError as error:
+    #         return 'no find'
 
     @staticmethod
     def get_next(current_offer_id):
@@ -128,7 +128,7 @@ class AdcomboOffer(Offer):
         verbose_name_plural = 'Офферы Adcombo'
 
     API_URL = 'https://api.adcombo.com/api/v2/order/create/'
-    API_KEY = '02ae7ffc3405c078074682b7b2abae9f'
+    API_KEY = settings.ADDCOMBO_API
 
     offer_id = models.CharField(max_length=10, verbose_name='Айди оффера в Adcombo / offer_id')
     base_url = models.URLField(verbose_name='ссылка лэнда оффера / base_url')
@@ -170,34 +170,7 @@ class AdcomboOffer(Offer):
             lead.save()
 
 
-class LeadRockOffer(Offer):
-    KEY = '20857'
-    SECRET = '1cBU3EI1bn7I9zLBbjGn1JDgZMkZnoJK'
-    API_URL = 'https://leadrock.com/api/v2/lead/save'
 
-    flow_url = models.URLField()
-
-    class Meta:
-        verbose_name = 'LeadRock Оффер'
-        verbose_name_plural = 'Офферы LeadRock'
-
-    def send_lead(self, lead):
-        data = {
-            'flow_url': 'https://leadrock.com/URL-64A47-9EC8B',
-            'user_phone': lead.phone,
-            'user_name': lead.name,
-            'other': '',
-            'ip': lead.ip,
-            'ua': '',
-            'api_key': self.KEY,
-            'sign': self.SECRET,
-            'sub1': '',
-            'sub2': '',
-            'other[address]': '',
-            'other[city]': '',
-            'other[zipcode]': '',
-            'other[quantity]': '1'
-        }
 
 
 class KmaOffer(Offer):
@@ -206,7 +179,7 @@ class KmaOffer(Offer):
         verbose_name = 'Оффер KMA'
         verbose_name_plural = 'Офферы KMA'
 
-    API_KEY = 'mWitobu1q4-hHzuomhY2oE-KLIzU2aEm'  # vlas API KEY T5Ug9l_5gStBTeg6mUCUSQ25hjAZbRjO
+    API_KEY = settings.KMA_API
     API_URL = 'https://api.kma.biz/lead/add'
 
     REFERER = 'Referer: https://facobook.com/'
@@ -254,8 +227,36 @@ class Lead(models.Model):
 
     def send(self):
         offer = self.offer
-        print(offer, type(offer))
-        for i in dir(offer):
-            print(i)
         offer.send(self)
         # self.offer.send(self)
+
+
+
+# class LeadRockOffer(Offer):
+#     KEY = '20857'
+#     SECRET = '1cBU3EI1bn7I9zLBbjGn1JDgZMkZnoJK'
+#     API_URL = 'https://leadrock.com/api/v2/lead/save'
+#
+#     flow_url = models.URLField()
+#
+#     class Meta:
+#         verbose_name = 'LeadRock Оффер'
+#         verbose_name_plural = 'Офферы LeadRock'
+#
+#     def send_lead(self, lead):
+#         data = {
+#             'flow_url': 'https://leadrock.com/URL-64A47-9EC8B',
+#             'user_phone': lead.phone,
+#             'user_name': lead.name,
+#             'other': '',
+#             'ip': lead.ip,
+#             'ua': '',
+#             'api_key': self.KEY,
+#             'sign': self.SECRET,
+#             'sub1': '',
+#             'sub2': '',
+#             'other[address]': '',
+#             'other[city]': '',
+#             'other[zipcode]': '',
+#             'other[quantity]': '1'
+#         }
