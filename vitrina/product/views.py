@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render, reverse, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Offer, Lead, Category
 from .forms import LeadForm
@@ -31,25 +31,33 @@ def category(requests, cat_slug):
 
 
 def product_details(requests, product_slug):
+    product = Offer.objects.get(slug=product_slug)
+    random_products = Offer.objects.exclude(pk=product.pk).order_by('?')
+    if not product.mini_land:
+        product.mini_land = 'default'
     if requests.method == 'POST':
         lead_form = LeadForm(requests.POST)
-        if lead_form.is_valid:
+        if lead_form.is_valid():
             lead = lead_form.save()
             lead.send()
             return HttpResponseRedirect(reverse('product:success', kwargs={'lead_id': lead.id}))
         else:
-            return HttpResponse('Error form')
+            # return HttpResponse('Error form')
+            content = {
+                'form': lead_form,
+                'product': product,
+                'products': random_products[:RANDOM_PRODUCT_COUNT],
+                'client_ip': get_client_ip(requests)
+            }
+            return render(requests, f'product/mini_lands/{product.mini_land}.html', content)
     else:
-        product = Offer.objects.get(slug=product_slug)
-        random_products = Offer.objects.exclude(pk=product.pk).order_by('?')
-
+        form = LeadForm(initial={'ip':get_client_ip(requests), 'offer': product})
         content = {
+            'form': form,
             'product': product,
             'products': random_products[:RANDOM_PRODUCT_COUNT],
             'client_ip': get_client_ip(requests)
         }
-        if not product.mini_land:
-            product.mini_land = 'default'
         return render(requests, f'product/mini_lands/{product.mini_land}.html', content)
 
 @login_required
@@ -62,8 +70,9 @@ def leads(requests):
 
 
 def success(requests, lead_id):
+    lead = get_object_or_404(Lead,pk=lead_id)
     random_products = Offer.objects.order_by('?')
-    lead = Lead.objects.get(pk=lead_id)
+    # lead = Lead.objects.get(pk=lead_id)
     content = {
         'lead': lead,
         'products': random_products[:RANDOM_PRODUCT_COUNT],
@@ -78,3 +87,7 @@ def prev_next_product(requests,direction, curr_id):
     else:
         product_slug = Offer.get_next(curr_id)
     return HttpResponseRedirect(reverse('product:product_detail', kwargs={'product_slug': product_slug}))
+
+
+# def error_404(request,exception):
+#     return render(request,'404.html')

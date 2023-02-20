@@ -16,3 +16,5 @@ urlpatterns = [
 
     path('product-next-prev/<str:direction>/<str:curr_id>', views.prev_next_product, name='prev_next_product'),
 ]
+
+# handler404 = 'product.views.error_404'
