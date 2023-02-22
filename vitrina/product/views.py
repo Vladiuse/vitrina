@@ -5,6 +5,10 @@ from .forms import LeadForm
 from django.contrib.auth.decorators import login_required
 
 RANDOM_PRODUCT_COUNT = 3
+
+def get_random_products(*exclude,count=RANDOM_PRODUCT_COUNT):
+    return Offer.objects.exclude(pk__in=exclude).order_by('?')[:count]
+
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
@@ -32,7 +36,7 @@ def category(requests, cat_slug):
 
 def product_details(requests, product_slug):
     product = Offer.objects.get(slug=product_slug)
-    random_products = Offer.objects.exclude(pk=product.pk).order_by('?')
+    # random_products = Offer.objects.exclude(pk=product.pk).order_by('?')
     if not product.mini_land:
         product.mini_land = 'default'
     if requests.method == 'POST':
@@ -46,7 +50,7 @@ def product_details(requests, product_slug):
             content = {
                 'form': lead_form,
                 'product': product,
-                'products': random_products[:RANDOM_PRODUCT_COUNT],
+                'products': get_random_products(product.pk),
                 'client_ip': get_client_ip(requests)
             }
             return render(requests, f'product/mini_lands/{product.mini_land}.html', content)
@@ -55,7 +59,7 @@ def product_details(requests, product_slug):
         content = {
             'form': form,
             'product': product,
-            'products': random_products[:RANDOM_PRODUCT_COUNT],
+            'products': get_random_products,
             'client_ip': get_client_ip(requests)
         }
         return render(requests, f'product/mini_lands/{product.mini_land}.html', content)
