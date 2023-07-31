@@ -5,7 +5,7 @@ import time
 TEST_URL = 'http://127.0.0.1:8000/'
 SERVER_URL = 'https://vitrina.vim-store.ru/'
 
-URL = SERVER_URL
+URL = TEST_URL
 
 
 browser = webdriver.Chrome()
